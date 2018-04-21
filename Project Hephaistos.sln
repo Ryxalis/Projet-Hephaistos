@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Hephaistos", "Assembly-CSharp.csproj", "{F87E222C-3319-7E05-C5C5-C2BC2DF389B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Hephaistos", "Assembly-CSharp-Editor.csproj", "{EE6561FA-8C6B-9F41-D20F-1C83E2EE1067}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F87E222C-3319-7E05-C5C5-C2BC2DF389B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F87E222C-3319-7E05-C5C5-C2BC2DF389B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F87E222C-3319-7E05-C5C5-C2BC2DF389B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F87E222C-3319-7E05-C5C5-C2BC2DF389B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6561FA-8C6B-9F41-D20F-1C83E2EE1067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6561FA-8C6B-9F41-D20F-1C83E2EE1067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6561FA-8C6B-9F41-D20F-1C83E2EE1067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6561FA-8C6B-9F41-D20F-1C83E2EE1067}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
