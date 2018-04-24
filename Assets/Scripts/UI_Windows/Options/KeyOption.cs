@@ -27,6 +27,7 @@ public class KeyOption : MonoBehaviour {
 		if (selectionToggle.isOn){
 			if(!MiniKeyPanel.activeSelf && Input.GetButtonDown ("Submit")){
 				MiniKeyPanel.SetActive(true);
+				eventSystem.SetSelectedGameObject (null);
 			}
 			else if (Input.anyKeyDown && MiniKeyPanel.activeSelf){
 				bool newKey = false;
