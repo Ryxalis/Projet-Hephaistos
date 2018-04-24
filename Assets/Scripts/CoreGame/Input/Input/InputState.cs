@@ -73,27 +73,12 @@ public class InputState : MonoBehaviour {
 		}
 	}
 
-	public bool GetButtonPressed(Buttons key){
+	public float GetButtonHoldTime(Buttons key){
 		if (buttonStates.ContainsKey (key)) {
-			return buttonStates [key].onKeyPressed;
+			return buttonStates [key].holdTime;
 		} else {
-			return false;
+			return 0;
 		}
 	}
 
-	public bool GetButtonReleased(Buttons key){
-		if (buttonStates.ContainsKey (key)) {
-			return buttonStates [key].onKeyReleased;
-		} else {
-			return false;
-		}
-	}
-
-	public bool GetButtonTimeTrigger(Buttons key){
-		if (buttonStates.ContainsKey (key)) {
-			return buttonStates [key].timeTrigger;
-		} else {
-			return false;
-		}
-	}
 }

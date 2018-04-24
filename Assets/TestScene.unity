@@ -25259,6 +25259,7 @@ GameObject:
   - component: {fileID: 1389974904}
   - component: {fileID: 1389974907}
   - component: {fileID: 1389974908}
+  - component: {fileID: 1389974909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -25358,7 +25359,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &1389974903
 CircleCollider2D:
@@ -25445,6 +25446,19 @@ MonoBehaviour:
   bottomPosition: {x: 0, y: -5.5}
   collisionRadius: 6
   debugCollisionColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1389974909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389974898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e61d12c3e02a84e89447ad102e7fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 08000000
+  jumpSpeed: 200
 --- !u!1 &1391983580
 GameObject:
   m_ObjectHideFlags: 0
