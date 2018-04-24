@@ -51,22 +51,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Dialogue\DiaAnimationManager.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaAtlasManager.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaConstants.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaManager.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaMasterManager.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaNarrativeEvent.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaPanelConfig.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\DiaPanelManager.cs" />
-     <Compile Include="Assets\Scripts\Dialogue\JSONFactory.cs" />
-     <Compile Include="Assets\Scripts\Input\Behaviors\AbstractBehavior.cs" />
-     <Compile Include="Assets\Scripts\Input\Behaviors\FaceDirection.cs" />
-     <Compile Include="Assets\Scripts\Input\Behaviors\SimpleMovement.cs" />
-     <Compile Include="Assets\Scripts\Input\Behaviors\Walk.cs" />
-     <Compile Include="Assets\Scripts\Input\Input\InputManager.cs" />
-     <Compile Include="Assets\Scripts\Input\Input\InputState.cs" />
-     <Compile Include="Assets\Scripts\Input\Input\KeysBinder.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Collisions\CollisionState.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaAnimationManager.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaAtlasManager.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaConstants.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaManager.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaNarrativeEvent.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelConfig.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\AbstractBehavior.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\FaceDirection.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\SimpleMovement.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\Walk.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />
@@ -101,6 +102,7 @@
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GameOverWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GenericOptionWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GenericWindow.cs" />
+     <Compile Include="Assets\Scripts\UI_Windows\Windows\IngameWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\KeyboardWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\OptionsWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\StartWindow.cs" />

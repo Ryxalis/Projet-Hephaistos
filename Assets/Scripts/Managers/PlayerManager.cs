@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Deals with all behaviours.																			*
+//* Chooses the good animation to display.																*
+//*																										*
+//*******************************************************************************************************
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +13,13 @@ public class PlayerManager : MonoBehaviour {
 	private InputState inputState;
 	private Walk walkBehaviour;
 	private Animator animator;
+	private CollisionState collisionState;
 
 	void Awake(){
 		inputState = GetComponent<InputState> ();
 		walkBehaviour = GetComponent<Walk> ();
 		animator = GetComponent<Animator> ();
+		collisionState = GetComponent<CollisionState> ();
 	}
 
 	void Start () {
@@ -19,7 +27,7 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if(inputState.absVelX == 0){
+		if(collisionState.standing){
 			ChangeAnimationState (0);
 		}
 		if(inputState.absVelX > 0){
