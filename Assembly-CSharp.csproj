@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\Duck.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\FaceDirection.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Jump.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\LongJump.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\SimpleMovement.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Walk.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Collisions\CollisionState.cs" />
@@ -69,6 +71,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
+     <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />
