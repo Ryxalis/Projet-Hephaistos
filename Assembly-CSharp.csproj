@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Game\InstantVelocity.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Game\TileBackground.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
@@ -87,7 +88,6 @@
      <Compile Include="Assets\Scripts\OldCoreGame\RecycleGameObject.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\Spawner.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\TerrainColumn.cs" />
-     <Compile Include="Assets\Scripts\OldCoreGame\TileBackground.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\TimeManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\WallCollider.cs" />
      <Compile Include="Assets\Scripts\PixelPerfectCamera.cs" />
