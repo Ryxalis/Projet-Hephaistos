@@ -5,6 +5,7 @@ using UnityEngine;
 public class InstantVelocity : MonoBehaviour {
 
 	public Vector2 velocity = Vector2.zero;
+	public bool hasLevelSpeed = true;
 
 	private Rigidbody2D myBody2D;
 
@@ -13,6 +14,10 @@ public class InstantVelocity : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		myBody2D.velocity = velocity;
+		if (hasLevelSpeed) {
+			myBody2D.velocity = new Vector2 (-InputState.absLevelSpeed, 0);
+		} else {
+			myBody2D.velocity = velocity;
+		}
 	}
 }

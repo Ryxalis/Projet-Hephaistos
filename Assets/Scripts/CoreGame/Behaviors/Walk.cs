@@ -31,7 +31,9 @@ public class Walk : AbstractBehavior {
 
 			var velX = tmpSpeed * (float)inputState.direction;
 
-			body2D.velocity = new Vector2 (velX, body2D.velocity.y);
+			body2D.velocity = new Vector2 (velX - InputState.absLevelSpeed, body2D.velocity.y);
+		} else {
+			body2D.velocity = new Vector2 ( - InputState.absLevelSpeed, body2D.velocity.y);
 		}
 	}
 }

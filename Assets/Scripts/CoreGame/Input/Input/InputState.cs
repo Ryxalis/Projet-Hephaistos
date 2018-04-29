@@ -19,7 +19,10 @@ public enum Direction{
 
 public class InputState : MonoBehaviour {
 
+	static public float absLevelSpeed = 20f;
+
 	public Direction direction = Direction.Right;
+
 	public float absVelX = 0f;
 	public float absVelY = 0f;
 

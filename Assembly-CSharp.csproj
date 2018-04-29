@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Jump.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\LongJump.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\SimpleMovement.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\SlideDownWall.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Walk.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Collisions\CollisionState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaAnimationManager.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelConfig.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Game\InstantVelocity.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
@@ -78,7 +80,6 @@
      <Compile Include="Assets\Scripts\OldCoreGame\DestroyOffscreen.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\GameManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\GameObjectUtil.cs" />
-     <Compile Include="Assets\Scripts\OldCoreGame\InstantVelocity.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\Level.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\m_UI.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\ObjectPool.cs" />

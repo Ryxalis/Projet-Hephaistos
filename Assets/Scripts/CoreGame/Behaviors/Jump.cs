@@ -20,7 +20,7 @@ public class Jump : AbstractBehavior {
 		var buttonJump = inputState.GetButtonValue (inputButtons [0]);
 		var buttonHoldTime = inputState.GetButtonHoldTime (inputButtons [0]);
 
-		if (collisionState.standing) {
+		if (collisionState.standing) {// || collisionState.onWall) {
 			if (buttonJump && buttonHoldTime < 0.1f) {
 				jumpsRemaining = jumpCount - 1;
 				OnJump ();

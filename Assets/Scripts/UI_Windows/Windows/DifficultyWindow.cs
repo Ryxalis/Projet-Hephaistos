@@ -60,7 +60,6 @@ public class DifficultyWindow : GenericWindow {
 			}
 
 			if (newDifficulty != difficulty) {
-				print ("OK");
 				difficulty = newDifficulty;
 				currentDelay = 0;
 			}
