@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour {
 	public InputState inputState;
 
 	void Start () {
-		PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 		InitializePrefsInput();
 		UpdateInputs();
 	}

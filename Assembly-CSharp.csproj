@@ -75,11 +75,12 @@
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
      <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\DestroyOffscreen.cs" />
-     <Compile Include="Assets\Scripts\OldCoreGame\GameManager.cs" />
+     <Compile Include="Assets\Scripts\OldCoreGame\GameManagerOld.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\GameObjectUtil.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\Level.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\m_UI.cs" />

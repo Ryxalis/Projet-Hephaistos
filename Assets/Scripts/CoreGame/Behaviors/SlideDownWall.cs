@@ -7,6 +7,8 @@ public class SlideDownWall : AbstractBehavior {
 	public bool onWallDetected;
 	public float newGravityScale;
 	public float newVelocityY = -5;
+	public float offsetX = 1;
+	public float offsetY = 2;
 
 	public GameObject dustPrefab;
 	public float dustSpawnDelay = 0.5f;
@@ -47,7 +49,8 @@ public class SlideDownWall : AbstractBehavior {
 			if(timeElapsed > dustSpawnDelay){
 				var dust = Instantiate (dustPrefab);
 				var pos = transform.position;
-				pos.y += 2;
+				pos.y += offsetY;
+				pos.x += inputState.direction == Direction.Left ? offsetX : -offsetX;
 				pos.z += 1;
 				dust.transform.position = pos;
 				dust.transform.localScale = transform.localScale;

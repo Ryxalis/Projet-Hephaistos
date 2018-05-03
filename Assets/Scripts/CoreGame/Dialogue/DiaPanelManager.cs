@@ -1,7 +1,6 @@
 ﻿//*******************************************************************************************************
-//* Initializes all managers.																			*
+//* Initializes panel managers.																			*
 //* Each manager does something useful for dialogues : sprites, animations and panels.					*
-//*																										*
 //*******************************************************************************************************
 
 using System.Collections;
@@ -20,10 +19,10 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 	private bool leftCharacterActive = true;
 	private int stepIndex = 0;
 
-	public void BootSequence(){
+	public void BootSequence(int sceneNumber){
 		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<DiaPanelConfig> ();
 		leftPanel  = GameObject.Find ("LeftCharacterPanel" ).GetComponent<DiaPanelConfig> ();
-		currentEvent = JSONAssembly.RunJSONFactoryForScene (1);
+		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneNumber);
 		//InitializePanels ();
 		UpdatePanelState();
 	}

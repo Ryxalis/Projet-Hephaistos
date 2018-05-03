@@ -15,7 +15,7 @@ public class DiaAnimationManager : MonoBehaviour, DiaManager {
 
 	Animator panelAnimator;
 
-	public void BootSequence(){
+	public void BootSequence(int sceneNumber){
 		panelAnimator = GameObject.Find ("DialogueCanvas").GetComponent<Animator> ();
 		currentState = DiaManagerState.Completed;
 

@@ -20,7 +20,7 @@ public class DiaMasterManager : MonoBehaviour {
 	public static DiaPanelManager panelManager { get; private set; }
 	public static DiaAnimationManager animationManager { get; private set; }
 
-	void Awake(){
+	void StartDialogue(int sceneNumber){
 		atlasManager = GetComponent<DiaAtlasManager> ();
 		panelManager = GetComponent<DiaPanelManager> ();
 		animationManager = GetComponent<DiaAnimationManager> ();
@@ -29,12 +29,12 @@ public class DiaMasterManager : MonoBehaviour {
 		_managerList.Add (animationManager);
 		_managerList.Add (panelManager);
 
-		StartCoroutine (BootAllManagers ());
+		StartCoroutine (BootAllManagers (sceneNumber));
 	}
 
-	private IEnumerator BootAllManagers(){
+	private IEnumerator BootAllManagers(int sceneNumber){
 		foreach (DiaManager manager in _managerList) {
-			manager.BootSequence ();
+			manager.BootSequence (sceneNumber);
 		}
 		yield return null;
 	}

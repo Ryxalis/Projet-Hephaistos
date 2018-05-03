@@ -7,7 +7,7 @@ public class PixelPerfectCamera : MonoBehaviour {
 	public static float pixelToUnits = 1f;
 	public static float scale = 1f;
 
-	public static Vector2 nativeResolution = new Vector2(420, 320);
+	public static Vector2 nativeResolution = new Vector2(320, 100);
 
 	void Awake () {
 		var camera = GetComponent<Camera> ();
