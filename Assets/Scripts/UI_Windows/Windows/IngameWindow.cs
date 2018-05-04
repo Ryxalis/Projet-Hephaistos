@@ -10,14 +10,7 @@ public class IngameWindow : GenericWindow {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Debug.Log ("Open options menu");
 			this.OnNextWindow ();
-			gameManager.Pause ();
+			gameManager.TogglePause (true);
 		}
 	}
-
-	public override void Open ()
-	{
-		base.Open ();
-		gameManager.StartGame (0);
-	}
-
 }
