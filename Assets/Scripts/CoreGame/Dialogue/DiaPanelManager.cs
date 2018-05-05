@@ -23,12 +23,11 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<DiaPanelConfig> ();
 		leftPanel  = GameObject.Find ("LeftCharacterPanel" ).GetComponent<DiaPanelConfig> ();
 		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneNumber);
-		//InitializePanels ();
 		UpdatePanelState();
 	}
 
 	void Update(){
-		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {
+		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting && DiaMasterManager.currentDialogue != -1) {
 			UpdatePanelState ();
 		}
 	}
@@ -43,10 +42,9 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 				leftCharacterActive = false;
 			}
 			stepIndex++;
-		}/* else {
-			StartCoroutine (DiaMasterManager.animationManager.DiaLeftEndAnimation());
-			StartCoroutine (DiaMasterManager.animationManager.DiaRightEndAnimation());
-		}*/
+		} else if(DiaMasterManager.currentDialogue != -1) {
+			DiaMasterManager.currentDialogue = -1;
+		}
 	}
 
 	private void UpdatePanels(){
@@ -84,34 +82,4 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 			leftPanel.ToggleCharacterMask ();
 		}
 	}
-
-
-
-
-	/*private void InitializePanels(){
-		if (currentEvent.dialogues [stepIndex].characterLocation == DiaCharacterLocation.Left) {
-			leftPanel.Configure (currentEvent.dialogues [stepIndex]);
-		} else if (currentEvent.dialogues [stepIndex].characterLocation == DiaCharacterLocation.Right) {
-			rightPanel.Configure (currentEvent.dialogues [stepIndex]);
-		}
-
-		if (currentEvent.dialogues [stepIndex+1].characterLocation == DiaCharacterLocation.Left) {
-			leftCharacterActive = true;
-			leftPanel.isTalking = true;
-			rightPanel.isTalking = false;
-			leftPanel.Configure (currentEvent.dialogues [stepIndex+1]);
-			rightPanel.ToggleCharacterMask ();
-		} else if (currentEvent.dialogues [stepIndex+1].characterLocation == DiaCharacterLocation.Right) {
-			leftCharacterActive = false;
-			leftPanel.isTalking = false;
-			rightPanel.isTalking = true;
-			rightPanel.Configure (currentEvent.dialogues [stepIndex+1]);
-			leftPanel.ToggleCharacterMask ();
-		}
-
-		StartCoroutine(DiaMasterManager.animationManager.DiaLeftStartAnimation ());
-		StartCoroutine(DiaMasterManager.animationManager.DiaRightStartAnimation ());
-
-		stepIndex += 2;
-	}*/
 }

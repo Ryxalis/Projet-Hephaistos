@@ -20,6 +20,14 @@ public class DiaMasterManager : MonoBehaviour {
 	public static DiaPanelManager panelManager { get; private set; }
 	public static DiaAnimationManager animationManager { get; private set; }
 
+	public static int currentDialogue = -1;
+
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.A)) {
+			StartDialogue (1);
+		}
+	}
+
 	void StartDialogue(int sceneNumber){
 		atlasManager = GetComponent<DiaAtlasManager> ();
 		panelManager = GetComponent<DiaPanelManager> ();
@@ -30,6 +38,8 @@ public class DiaMasterManager : MonoBehaviour {
 		_managerList.Add (panelManager);
 
 		StartCoroutine (BootAllManagers (sceneNumber));
+
+		currentDialogue = sceneNumber;
 	}
 
 	private IEnumerator BootAllManagers(int sceneNumber){

@@ -13,38 +13,40 @@ public class DiaAnimationManager : MonoBehaviour, DiaManager {
 
 	public DiaManagerState currentState { get; private set; }
 
-	Animator panelAnimator;
+	Animator leftPanelAnimator;
+	Animator rightPanelAnimator;
 
 	public void BootSequence(int sceneNumber){
-		panelAnimator = GameObject.Find ("DialogueCanvas").GetComponent<Animator> ();
+		leftPanelAnimator  = GetComponentsInChildren<Animator> ()[0];
+		rightPanelAnimator = GetComponentsInChildren<Animator> ()[1];
 		currentState = DiaManagerState.Completed;
 
 	}
 
 	public IEnumerator DiaLeftStartAnimation(){
-		DiaAnimationTuple dialogueStartAnim = DiaConstants.DiaAnimationTuples.diaLeftStartAnimation;
-		panelAnimator.SetBool (dialogueStartAnim.parameter, dialogueStartAnim.value);
+		DiaAnimationTuple dialogueStartAnim = DiaConstants.DiaAnimationTuples.diaStartAnimation;
+		leftPanelAnimator.SetBool (dialogueStartAnim.parameter, dialogueStartAnim.value);
 
 		yield return new WaitForSeconds (1);
 	}
 
 	public IEnumerator DiaLeftEndAnimation(){
-		DiaAnimationTuple dialogueEndAnim = DiaConstants.DiaAnimationTuples.diaLeftEndAnimation;
-		panelAnimator.SetBool (dialogueEndAnim.parameter, dialogueEndAnim.value);
+		DiaAnimationTuple dialogueEndAnim = DiaConstants.DiaAnimationTuples.diaEndAnimation;
+		leftPanelAnimator.SetBool (dialogueEndAnim.parameter, dialogueEndAnim.value);
 
 		yield return new WaitForSeconds (1);
 	}
 
 	public IEnumerator DiaRightStartAnimation(){
-		DiaAnimationTuple dialogueStartAnim = DiaConstants.DiaAnimationTuples.diaRightStartAnimation;
-		panelAnimator.SetBool (dialogueStartAnim.parameter, dialogueStartAnim.value);
+		DiaAnimationTuple dialogueStartAnim = DiaConstants.DiaAnimationTuples.diaStartAnimation;
+		rightPanelAnimator.SetBool (dialogueStartAnim.parameter, dialogueStartAnim.value);
 
 		yield return new WaitForSeconds (1);
 	}
 
 	public IEnumerator DiaRightEndAnimation(){
-		DiaAnimationTuple dialogueEndAnim = DiaConstants.DiaAnimationTuples.diaRightEndAnimation;
-		panelAnimator.SetBool (dialogueEndAnim.parameter, dialogueEndAnim.value);
+		DiaAnimationTuple dialogueEndAnim = DiaConstants.DiaAnimationTuples.diaEndAnimation;
+		rightPanelAnimator.SetBool (dialogueEndAnim.parameter, dialogueEndAnim.value);
 
 		yield return new WaitForSeconds (1);
 	}

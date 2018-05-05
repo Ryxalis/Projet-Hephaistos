@@ -21,9 +21,7 @@ namespace DiaConstants{
 	}
 
 	internal class DiaAnimationTuples{
-		internal static DiaAnimationTuple diaLeftStartAnimation  = new DiaAnimationTuple ("DiaLeftStart", true);
-		internal static DiaAnimationTuple diaLeftEndAnimation    = new DiaAnimationTuple ("DiaLeftStart", false);
-		internal static DiaAnimationTuple diaRightStartAnimation = new DiaAnimationTuple ("DiaRightStart", true);
-		internal static DiaAnimationTuple diaRightEndAnimation   = new DiaAnimationTuple ("DiaRightStart", false);
+		internal static DiaAnimationTuple diaStartAnimation  = new DiaAnimationTuple ("DiaStart", true);
+		internal static DiaAnimationTuple diaEndAnimation    = new DiaAnimationTuple ("DiaStart", false);
 	}
 }

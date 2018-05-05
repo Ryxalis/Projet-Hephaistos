@@ -1,39 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Dialogues\Event1.json">
     <Files>
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="49" Column="41" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\IngameWindow.cs" Line="13" Column="22" />
-      <File FileName="Assets\Scripts\OldCoreGame\GameManagerOld.cs" Line="67" Column="2" />
-      <File FileName="Assets\Scripts\OldCoreGame\TimeManager.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" Line="28" Column="3" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" Line="75" Column="19" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaNarrativeEvent.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" Line="23" Column="15" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaAnimationManager.cs" Line="42" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaConstants.cs" Line="25" Column="100" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaManager.cs" Line="12" Column="2" />
+      <File FileName="Assets\Resources\Dialogues\Event1.json" Line="17" Column="21" />
+      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="24" Column="3" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelConfig.cs" Line="44" Column="4" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Project Hephaistos" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="CoreGame" expanded="True">
-                  <Node name="Dialogue" expanded="True" />
-                </Node>
-                <Node name="Managers" expanded="True">
-                  <Node name="GameManager.cs" selected="True" />
-                </Node>
-                <Node name="OldCoreGame" expanded="True" />
-                <Node name="UI_Windows" expanded="True">
-                  <Node name="Windows" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="Project Hephaistos" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
