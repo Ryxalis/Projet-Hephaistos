@@ -19,15 +19,15 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 	private bool leftCharacterActive = true;
 	private int stepIndex = 0;
 
-	public void BootSequence(int sceneNumber){
+	public void BootSequence(string sceneName){
 		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<DiaPanelConfig> ();
 		leftPanel  = GameObject.Find ("LeftCharacterPanel" ).GetComponent<DiaPanelConfig> ();
-		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneNumber);
+		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneName);
 		UpdatePanelState();
 	}
 
 	void Update(){
-		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting && DiaMasterManager.currentDialogue != -1) {
+		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {// && DiaMasterManager.currentDialogue != "none") {
 			UpdatePanelState ();
 		}
 	}
@@ -42,8 +42,8 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 				leftCharacterActive = false;
 			}
 			stepIndex++;
-		} else if(DiaMasterManager.currentDialogue != -1) {
-			DiaMasterManager.currentDialogue = -1;
+		} else if(DiaMasterManager.currentDialogue != "none") {
+			DiaMasterManager.currentDialogue = "none";
 		}
 	}
 

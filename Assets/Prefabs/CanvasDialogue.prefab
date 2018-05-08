@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 224312546523381500}
   - component: {fileID: 222225429136770370}
   - component: {fileID: 114200539481746484}
-  - component: {fileID: 114807518264660940}
   m_Layer: 5
   m_Name: LeftCharacterPanel
   m_TagString: Untagged
@@ -128,7 +127,6 @@ GameObject:
   - component: {fileID: 224904150368997512}
   - component: {fileID: 222247253686075190}
   - component: {fileID: 114913910335214596}
-  - component: {fileID: 114453230805344706}
   m_Layer: 5
   m_Name: RightCharacterPanel
   m_TagString: Untagged
@@ -448,22 +446,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114453230805344706
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1593753359638196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78273d7791e4040c184fd07b8e1ca0ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterIsTalking: 0
-  avatarImage: {fileID: 114280075600624872}
-  textBG: {fileID: 114766971826885684}
-  characterName: {fileID: 114529473832258036}
-  dialogue: {fileID: 114213410558725788}
 --- !u!114 &114529473832258036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -551,22 +533,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114807518264660940
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440203061795524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78273d7791e4040c184fd07b8e1ca0ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterIsTalking: 0
-  avatarImage: {fileID: 114564068528508850}
-  textBG: {fileID: 114319240576586770}
-  characterName: {fileID: 114823856094732026}
-  dialogue: {fileID: 114067351655457950}
 --- !u!114 &114823856094732026
 MonoBehaviour:
   m_ObjectHideFlags: 1

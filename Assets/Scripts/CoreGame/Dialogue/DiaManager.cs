@@ -9,5 +9,5 @@ public enum DiaManagerState {
 public interface DiaManager {
 	DiaManagerState currentState { get; }
 
-	void BootSequence(int sceneNumber);
+	void BootSequence(string sceneName);
 }

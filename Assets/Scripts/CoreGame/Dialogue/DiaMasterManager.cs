@@ -20,15 +20,16 @@ public class DiaMasterManager : MonoBehaviour {
 	public static DiaPanelManager panelManager { get; private set; }
 	public static DiaAnimationManager animationManager { get; private set; }
 
-	public static int currentDialogue = -1;
+	public static string currentDialogue = "none";
 
 	void Update(){
-		if (Input.GetKeyDown(KeyCode.A)) {
-			StartDialogue (1);
+		if (Input.GetKeyDown(KeyCode.A) && currentDialogue == "none") {
+			StartDialogue ("Event1");
 		}
 	}
 
-	void StartDialogue(int sceneNumber){
+	public void StartDialogue(string sceneName){
+
 		atlasManager = GetComponent<DiaAtlasManager> ();
 		panelManager = GetComponent<DiaPanelManager> ();
 		animationManager = GetComponent<DiaAnimationManager> ();
@@ -37,14 +38,14 @@ public class DiaMasterManager : MonoBehaviour {
 		_managerList.Add (animationManager);
 		_managerList.Add (panelManager);
 
-		StartCoroutine (BootAllManagers (sceneNumber));
+		StartCoroutine (BootAllManagers (sceneName));
 
-		currentDialogue = sceneNumber;
+		currentDialogue = sceneName;
 	}
 
-	private IEnumerator BootAllManagers(int sceneNumber){
+	private IEnumerator BootAllManagers(string sceneName){
 		foreach (DiaManager manager in _managerList) {
-			manager.BootSequence (sceneNumber);
+			manager.BootSequence (sceneName);
 		}
 		yield return null;
 	}

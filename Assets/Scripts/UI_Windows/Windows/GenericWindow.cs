@@ -36,6 +36,20 @@ public class GenericWindow : MonoBehaviour {
 		}
 	}
 
+	public virtual void Open(Windows arg_previousWindow = Windows.None, Windows arg_nextWindow = Windows.None){
+		Display (true);
+		OnFocus ();
+		if (WindowsManager.backgrounds.Contains((int)thisWindow - 1)) {
+			WindowsManager.backgrounds.Remove ((int)thisWindow - 1);
+		}
+		if (this.previousWindow.window != Windows.None) {
+			this.previousWindow.window = arg_previousWindow;
+		}
+		if (this.nextWindow.window!= Windows.None) {
+			this.nextWindow.window = arg_nextWindow;
+		}
+	}
+
 	public virtual void Close(){
 		Display(false);
 	}

@@ -16,7 +16,7 @@ public class DiaAnimationManager : MonoBehaviour, DiaManager {
 	Animator leftPanelAnimator;
 	Animator rightPanelAnimator;
 
-	public void BootSequence(int sceneNumber){
+	public void BootSequence(string sceneName){
 		leftPanelAnimator  = GetComponentsInChildren<Animator> ()[0];
 		rightPanelAnimator = GetComponentsInChildren<Animator> ()[1];
 		currentState = DiaManagerState.Completed;

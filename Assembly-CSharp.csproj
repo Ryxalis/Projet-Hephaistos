@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DialogueWindow.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Duck.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\FaceDirection.cs" />

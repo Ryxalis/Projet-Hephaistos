@@ -14,7 +14,7 @@ public class DiaAtlasManager : MonoBehaviour, DiaManager {
 	public static Sprite[] sprites;
 	public DiaManagerState currentState { get; private set; }
 
-	public void BootSequence(int sceneNumber){
+	public void BootSequence(string sceneName){
 		sprites = Resources.LoadAll<Sprite> ("Artwork/EventAtlas");
 		currentState = DiaManagerState.Completed;
 	}

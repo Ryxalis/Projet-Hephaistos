@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject game;
 	public GameObject[] levels;
+	public GameObject dialoguePanel;
 
+	private DiaMasterManager diaMasterManager;
 	private bool isPaused;
 	public bool get_isPaused(){ return isPaused; }
 	private bool gameStarted;
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour {
 
 	void Awake() {
 		timeManager = GameObject.Find ("TimeManager").GetComponent<TimeManager> ();
+		diaMasterManager = dialoguePanel.GetComponent<DiaMasterManager> ();
+		dialoguePanel.SetActive (false);
 		foreach (var level in levels) {
 			level.SetActive (false);
 		}
@@ -24,7 +28,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update () {
-		
+
 	}
 
 	public void StartGame(){
@@ -39,7 +43,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void StartDialogue(string dialogueName){
-
+		if (DiaMasterManager.currentDialogue == "none") {
+			dialoguePanel.SetActive (true);
+			diaMasterManager.StartDialogue (dialogueName);
+		}
 	}
 
 	public void TogglePause(bool toggle){

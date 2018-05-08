@@ -8,12 +8,14 @@ using LitJson;
 namespace JSONFactory{
 	class JSONAssembly {
 
-		private static Dictionary<int, string> _resourceList = new Dictionary<int, string>{
-			{1, "/Resources/Dialogues/Event1.json"}
+		private static Dictionary<string, string> _resourceList = new Dictionary<string, string>{
+			{"Event1", "/Resources/Dialogues/Event1.json"},
+			{"Event2", "/Resources/Dialogues/Event2.json"}
+
 		};
 
-		public static DiaNarrativeEvent RunJSONFactoryForScene(int sceneNumber) {
-			string resourcePath = PathForScene (sceneNumber);
+		public static DiaNarrativeEvent RunJSONFactoryForScene(string sceneName) {
+			string resourcePath = PathForScene (sceneName);
 
 			if (IsValidJSON (resourcePath) == true) {
 				string jsonString = File.ReadAllText (Application.dataPath + resourcePath);
@@ -25,11 +27,11 @@ namespace JSONFactory{
 			}
 		}
 
-		private static string PathForScene(int sceneNumber){
+		private static string PathForScene(string sceneName){
 			string resourcePathResult;
 
-			if (_resourceList.TryGetValue (sceneNumber, out resourcePathResult)) {
-				return _resourceList [sceneNumber];
+			if (_resourceList.TryGetValue (sceneName, out resourcePathResult)) {
+				return _resourceList [sceneName];
 			} else {
 				throw new Exception ("Scene number does not exist.");
 			}
