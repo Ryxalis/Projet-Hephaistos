@@ -1,18 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI_Windows\WindowsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CoreGame\MainLoop.cs">
     <Files>
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaNarrativeEvent.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" Line="15" Column="46" />
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="40" Column="19" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\StartWindow.cs" Line="12" Column="29" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\GenericWindow.cs" Line="63" Column="15" />
-      <File FileName="Assets\DialogueWindow.cs" Line="11" Column="17" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\AnyOptionsWindow.cs" Line="40" Column="29" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\GameOverWindow.cs" Line="22" Column="29" />
-      <File FileName="Assets\Scripts\UI_Windows\WindowsManager.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaNarrativeEvent.cs" Line="21" Column="2" />
+      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="39" Column="24" />
+      <File FileName="Assets\Scripts\CoreGame\MainLoop.cs" Line="46" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaManager.cs" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" Line="22" Column="15" />
+      <File FileName="Assets\Scripts\CoreGame\GameNode.cs" Line="15" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,10 +15,11 @@
           <Node name="Project Hephaistos" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="UI_Windows" expanded="True">
-                  <Node name="Windows" expanded="True" />
-                  <Node name="WindowsManager.cs" selected="True" />
+                <Node name="CoreGame" expanded="True">
+                  <Node name="Dialogue" expanded="True" />
+                  <Node name="MainLoop.cs" selected="True" />
                 </Node>
+                <Node name="Managers" expanded="True" />
               </Node>
             </Node>
           </Node>

@@ -4902,7 +4902,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277077455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -13.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1838294261}
@@ -11319,7 +11319,7 @@ RectTransform:
   m_Children:
   - {fileID: 1584003898}
   m_Father: {fileID: 1519486522}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11339,7 +11339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextWindow:
     activateBackground: 0
-    window: 8
+    window: 12
   previousWindow:
     activateBackground: 0
     window: 1
@@ -19469,7 +19469,7 @@ RectTransform:
   - {fileID: 640623450}
   - {fileID: 1391983581}
   m_Father: {fileID: 1519486522}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -19759,7 +19759,7 @@ MonoBehaviour:
     window: 0
   previousWindow:
     activateBackground: 0
-    window: 3
+    window: 2
   thisWindow: 4
   firstSelected: {fileID: 1636169001}
   options:
@@ -22888,7 +22888,7 @@ MonoBehaviour:
     window: 0
   previousWindow:
     activateBackground: 0
-    window: 3
+    window: 2
   thisWindow: 6
   firstSelected: {fileID: 1090475472}
   options:
@@ -23324,9 +23324,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14885439}
-        m_MethodName: StartDialogue
-        m_Mode: 5
+      - m_Target: {fileID: 1569557443}
+        m_MethodName: OnNextWindow
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -24256,6 +24256,34 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064353590}
+--- !u!1 &1070634880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1070634881}
+  m_Layer: 0
+  m_Name: MainLoop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1070634881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070634880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -244.37997, y: 25.363882, z: -15.724788}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1072571802
 GameObject:
   m_ObjectHideFlags: 0
@@ -33260,17 +33288,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 14885439}
-        m_MethodName: StartGame
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1479601356
@@ -34433,16 +34450,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windows:
   - {fileID: 1569557443}
-  - {fileID: 467545781}
   - {fileID: 1833899038}
   - {fileID: 2121095621}
   - {fileID: 861682792}
   - {fileID: 2086512305}
   - {fileID: 1000654083}
+  - {fileID: 467545781}
   - {fileID: 841394479}
   - {fileID: 812132487}
   - {fileID: 30616760}
   - {fileID: 805426798}
+  - {fileID: 277077457}
   currentWindowID: 0
   defaultWindowID: 0
 --- !u!114 &1519486520
@@ -34501,8 +34519,8 @@ RectTransform:
   m_Children:
   - {fileID: 1569557444}
   - {fileID: 1353104271}
-  - {fileID: 841394477}
   - {fileID: 467545780}
+  - {fileID: 841394477}
   - {fileID: 277077456}
   - {fileID: 812132488}
   - {fileID: 30616761}
@@ -35645,16 +35663,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextWindow:
     activateBackground: 0
-    window: 2
+    window: 7
   previousWindow:
     activateBackground: 0
     window: 0
   thisWindow: 1
-  firstSelected: {fileID: 1026196648}
+  firstSelected: {fileID: 272669619}
   continueButton: {fileID: 272669620}
   optionsWindow:
     activateBackground: 1
-    window: 3
+    window: 2
 --- !u!224 &1569557444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45752,7 +45770,7 @@ MonoBehaviour:
     window: 0
   previousWindow:
     activateBackground: 0
-    window: 3
+    window: 2
   thisWindow: 5
   firstSelected: {fileID: 395866371}
   options:
@@ -46298,7 +46316,7 @@ MonoBehaviour:
     window: 0
   previousWindow:
     activateBackground: 0
-    window: 3
+    window: 2
   thisWindow: 3
   firstSelected: {fileID: 504009171}
   options:

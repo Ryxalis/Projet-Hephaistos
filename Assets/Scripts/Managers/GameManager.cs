@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
 		game.SetActive (true);
 	}
 
-	public void StartGame(int level){
+	public void StartLevel(int level){
 		gameStarted = true;
 		game.SetActive (true);
 		levels [level].SetActive (true);
