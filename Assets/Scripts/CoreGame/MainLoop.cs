@@ -7,12 +7,13 @@ public enum GameStatus{Menu, WorldMap, WorldMapDialogue, Level};
 public class MainLoop : MonoBehaviour {
 
 	private GameStatus gameStatus;
-	private GameNode currentGameNode;
 
+	public GameNode currentGameNode;
 	public GameManager gameManager;
 
 	void Awake() {
 		gameStatus = GameStatus.Menu;
+
 	}
 
 	void Update () {
@@ -33,13 +34,15 @@ public class MainLoop : MonoBehaviour {
 			print ("Go left");
 			currentGameNode = currentGameNode.nodeLeft;
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && currentGameNode.levelNumber > 0) {
-			// FAIRE UNE COROUTINE ICI POUR LE NIVEAU
-			if (currentGameNode.dialogueSceneName != "") {
-				gameManager.StartDialogue (currentGameNode.dialogueSceneName);
-			}
-			gameManager.StartLevel (currentGameNode.levelNumber);
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			currentGameNode.LevelSequence ();
+		}
+		if (!currentGameNode.hasDoneDialogue) {
+			currentGameNode.DialogueSequence ();
 		}
 
+		if (!currentGameNode.isExplored) {
+			currentGameNode.isExplored = true;
+		}
 	}
 }
