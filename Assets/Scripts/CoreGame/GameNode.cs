@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameNode : MonoBehaviour {
 
+	public Sprite lockedSprite;
+	public Sprite unexploredSprite;
+	public Sprite exploredSprite;
+	public Sprite currentSprite;
+
 	public GameNode nodeLeft = null;		// null if there is none
 	public GameNode nodeRight = null;
 	public GameNode nodeUp = null;
@@ -23,17 +28,42 @@ public class GameNode : MonoBehaviour {
 
 	public bool isLocked = false;
 	public bool isExplored = false;
+	public bool isCurrent = false;
 
 	private GameManager gameManager;
+	private SpriteRenderer spriteRenderer;
+	private WorldWindow worldWindow;
 
-	void Start(){
+	public void LeaveNode(){
+		isExplored = true;
+		isCurrent = false;
+		spriteRenderer.sprite = exploredSprite;
+	}
+
+	public void SetCurrent(){
+		spriteRenderer.sprite = currentSprite;
+		isCurrent = true;
+	}
+
+	void Awake(){
+		worldWindow = GetComponentInParent<WorldWindow> ();
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
+		if (!isExplored) {
+			spriteRenderer.sprite = unexploredSprite;
+		} else {
+			spriteRenderer.sprite = exploredSprite;
+		}
+		if(isCurrent){
+			spriteRenderer.sprite = currentSprite;
+		}
 	}
 
 	public void DialogueSequence(){
 		if(isDialogue && dialogueName != ""){
 			print ("IsDialogue");
-			gameManager.StartDialogue (dialogueName);
+			//gameManager.StartDialogue (dialogueName);
+			worldWindow.StartDialogue(dialogueName);
 		}
 	}
 

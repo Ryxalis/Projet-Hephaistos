@@ -116,6 +116,7 @@
      <Compile Include="Assets\Scripts\UI_Windows\Windows\OptionsWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\StartWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\VideoOptionsWindow.cs" />
+     <Compile Include="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\WindowsEnum.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\WindowsManager.cs" />
      <None Include="Assets\codeandweb.com\Readme.txt" />

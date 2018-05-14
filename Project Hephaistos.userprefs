@@ -1,13 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CoreGame\MainLoop.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DialogueWindow.cs">
     <Files>
       <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaNarrativeEvent.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\GameNode.cs" Line="35" Column="25" />
-      <File FileName="Assets\Scripts\CoreGame\MainLoop.cs" Line="37" Column="42" />
+      <File FileName="Assets\Scripts\CoreGame\GameNode.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\MainLoop.cs" Line="55" Column="74" />
+      <File FileName="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" Line="11" Column="3" />
+      <File FileName="Assets\Scripts\UI_Windows\Windows\GenericWindow.cs" Line="1" Column="1" />
+      <File FileName="Assets\DialogueWindow.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" Line="47" Column="2" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" Line="35" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,9 +22,13 @@
               <Node name="Scripts" expanded="True">
                 <Node name="CoreGame" expanded="True">
                   <Node name="Dialogue" expanded="True" />
-                  <Node name="MainLoop.cs" selected="True" />
+                </Node>
+                <Node name="Managers" expanded="True" />
+                <Node name="UI_Windows" expanded="True">
+                  <Node name="Windows" expanded="True" />
                 </Node>
               </Node>
+              <Node name="DialogueWindow.cs" selected="True" />
             </Node>
           </Node>
         </State>
