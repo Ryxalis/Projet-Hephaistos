@@ -51,6 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DialogueWindow.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\Duck.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\FaceDirection.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\Jump.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\LongJump.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\SimpleMovement.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\SlideDownWall.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Behaviors\Walk.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Collisions\CollisionState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaAnimationManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaAtlasManager.cs" />
@@ -61,20 +70,21 @@
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelConfig.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\AbstractBehavior.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\FaceDirection.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\SimpleMovement.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\Input\Behaviors\Walk.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Game\InstantVelocity.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Game\TileBackground.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\GameNode.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\MainLoop.cs" />
+     <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\DestroyOffscreen.cs" />
-     <Compile Include="Assets\Scripts\OldCoreGame\GameManager.cs" />
+     <Compile Include="Assets\Scripts\OldCoreGame\GameManagerOld.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\GameObjectUtil.cs" />
-     <Compile Include="Assets\Scripts\OldCoreGame\InstantVelocity.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\Level.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\m_UI.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\ObjectPool.cs" />
@@ -82,7 +92,6 @@
      <Compile Include="Assets\Scripts\OldCoreGame\RecycleGameObject.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\Spawner.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\TerrainColumn.cs" />
-     <Compile Include="Assets\Scripts\OldCoreGame\TileBackground.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\TimeManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\WallCollider.cs" />
      <Compile Include="Assets\Scripts\PixelPerfectCamera.cs" />
@@ -105,8 +114,10 @@
      <Compile Include="Assets\Scripts\UI_Windows\Windows\IngameWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\KeyboardWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\OptionsWindow.cs" />
+     <Compile Include="Assets\Scripts\UI_Windows\Windows\ProfileWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\StartWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\VideoOptionsWindow.cs" />
+     <Compile Include="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\WindowsEnum.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\WindowsManager.cs" />
      <None Include="Assets\codeandweb.com\Readme.txt" />

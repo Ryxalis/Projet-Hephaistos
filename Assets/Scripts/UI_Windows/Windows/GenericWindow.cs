@@ -51,6 +51,17 @@ public class GenericWindow : MonoBehaviour {
 		wManager.Open ((int)nextWindow.window - 1);
 	}
 
+	public virtual void OnNextWindowCustom(int arg_previousWindow = -1, bool arg_prevWinBakground = false, int arg_nextWindow = -1, bool arg_nextWinBakground = false){
+		if (nextWindow.activateBackground) {
+			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
+		}
+		wManager.Open ((int)nextWindow.window - 1);
+	}
+
+	public virtual void NextWindowSetBackground(bool background){
+		//wManager
+	}
+
 	public virtual void OnPreviousWindow(){
 		if (previousWindow.activateBackground) {
 			WindowsManager.backgrounds.Add((int)thisWindow - 1);

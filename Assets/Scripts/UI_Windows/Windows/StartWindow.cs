@@ -22,11 +22,7 @@ public class StartWindow : GenericWindow {
 		base.Open();
 	}
 
-	public void NewGame(){
-		OnNextWindow ();
-	}
-
-	public void Continue(){
+	public void ProfilWindow(){
 		OnNextWindow ();
 	}
 
