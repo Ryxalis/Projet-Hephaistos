@@ -2,46 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum NodeStatus {Locked, Unlocked}
+
 public class GameNode : MonoBehaviour {
 
 	public Sprite lockedSprite;
-	public Sprite unexploredSprite;
-	public Sprite exploredSprite;
-	public Sprite currentSprite;
+	public Sprite unlockedSprite;
+	//public Sprite currentSprite;
 
 	public GameNode nodeLeft = null;		// null if there is none
 	public GameNode nodeRight = null;
 	public GameNode nodeUp = null;
 	public GameNode nodeDown = null;
 
-	public bool isFork = false;
-	public bool isLevel = false;
-	public bool isDialogue = false;
-	public bool isDialogueEndLevel = false;
-	public bool hasDoneDialogue = false;	// put it private?
+	public bool hasFork = false;
+	public bool hasLevel = false;
+	public bool hasDialogueStartLevel = false;
+	public bool hasDialogueEndLevel = false;
+	public bool hasDoneDialogueStartLevel = false;	// put it private?
 	public bool hasDoneDialogueEndLevel = false;	// put it private?
 
-	public string dialogueName = "";
+	public string dialogueStartLevelName = "";
 	public string dialogueEndLevelName = "";
 	public int levelNumber = -1;
 	//fork thing?
 
-	public bool isLocked = false;
-	public bool isExplored = false;
-	public bool isCurrent = false;
+	public NodeStatus nodeStatus = NodeStatus.Locked;
+	public bool isCurrent;
 
 	private GameManager gameManager;
 	private SpriteRenderer spriteRenderer;
 	private WorldWindow worldWindow;
 
-	public void LeaveNode(){
-		isExplored = true;
-		isCurrent = false;
-		spriteRenderer.sprite = exploredSprite;
+	public void UnlockNode(){
+		nodeStatus = NodeStatus.Unlocked;
+		//isExplored = true;
+		//isCurrent = false;
+		spriteRenderer.sprite = unlockedSprite;
 	}
 
 	public void SetCurrent(){
-		spriteRenderer.sprite = currentSprite;
+		//spriteRenderer.sprite = currentSprite;
 		isCurrent = true;
 	}
 
@@ -49,26 +50,29 @@ public class GameNode : MonoBehaviour {
 		worldWindow = GetComponentInParent<WorldWindow> ();
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
-		if (!isExplored) {
-			spriteRenderer.sprite = unexploredSprite;
+		if (nodeStatus == NodeStatus.Locked) {
+			spriteRenderer.sprite = unlockedSprite;
 		} else {
-			spriteRenderer.sprite = exploredSprite;
+			spriteRenderer.sprite = unlockedSprite;
 		}
 		if(isCurrent){
-			spriteRenderer.sprite = currentSprite;
+			//spriteRenderer.sprite = currentSprite;
 		}
 	}
 
-	public void DialogueSequence(){
-		if(isDialogue && dialogueName != ""){
-			print ("IsDialogue");
-			//gameManager.StartDialogue (dialogueName);
-			worldWindow.StartDialogue(dialogueName);
+	public void DialogueStartSequence(){
+		if(hasDialogueStartLevel && dialogueStartLevelName != ""){
+			worldWindow.StartDialogue(dialogueStartLevelName);
+		}
+	}
+	public void DialogueEndSequence(){
+		if(hasDialogueEndLevel && dialogueEndLevelName != ""){
+			worldWindow.StartDialogue(dialogueEndLevelName);
 		}
 	}
 
 	public void LevelSequence(){
-		if (isLevel && levelNumber > 0) {
+		if (hasLevel && levelNumber > 0) {
 			gameManager.StartLevel (levelNumber);
 		}
 	}

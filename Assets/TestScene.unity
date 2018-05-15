@@ -2700,24 +2700,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 916563200}
   nodeRight: {fileID: 353198705}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 0
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 0
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: 
+  dialogueStartLevelName: 
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 0
 --- !u!4 &163161832
 Transform:
@@ -6375,24 +6372,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 163161831}
   nodeRight: {fileID: 654970440}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 0
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 0
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: 
+  dialogueStartLevelName: 
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 0
 --- !u!4 &353198706
 Transform:
@@ -15417,24 +15411,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 353198705}
   nodeRight: {fileID: 751177165}
   nodeUp: {fileID: 2109232112}
   nodeDown: {fileID: 0}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 0
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 0
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: 
+  dialogueStartLevelName: 
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 0
 --- !u!4 &654970441
 Transform:
@@ -17062,24 +17053,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 654970440}
   nodeRight: {fileID: 0}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 0
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 0
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: 
+  dialogueStartLevelName: 
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 0
 --- !u!4 &751177166
 Transform:
@@ -20782,24 +20770,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 1806382030}
   nodeRight: {fileID: 163161831}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 0
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 0
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: 
+  dialogueStartLevelName: 
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 0
 --- !u!4 &916563201
 Transform:
@@ -40044,24 +40029,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 0}
   nodeRight: {fileID: 916563200}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 1
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 1
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: Event1
+  dialogueStartLevelName: Event1
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 1
 --- !u!4 &1806382031
 Transform:
@@ -46733,24 +46715,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  unexploredSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
-  exploredSprite: {fileID: 21300000, guid: c2a15b881242d1f4ab42922d313833eb, type: 3}
-  currentSprite: {fileID: 21300000, guid: a82e2c7c17581b749a93b3e6bfa5d282, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
   nodeLeft: {fileID: 0}
   nodeRight: {fileID: 0}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 654970440}
-  isFork: 0
-  isLevel: 0
-  isDialogue: 0
-  isDialogueEndLevel: 0
-  hasDoneDialogue: 0
+  hasFork: 0
+  hasLevel: 0
+  hasDialogueStartLevel: 0
+  hasDialogueEndLevel: 0
+  hasDoneDialogueStartLevel: 0
   hasDoneDialogueEndLevel: 0
-  dialogueName: 
+  dialogueStartLevelName: 
   dialogueEndLevelName: 
   levelNumber: -1
-  isLocked: 0
-  isExplored: 0
+  nodeStatus: 0
   isCurrent: 0
 --- !u!212 &2109232113
 SpriteRenderer:
