@@ -114,6 +114,7 @@
      <Compile Include="Assets\Scripts\UI_Windows\Windows\IngameWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\KeyboardWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\OptionsWindow.cs" />
+     <Compile Include="Assets\Scripts\UI_Windows\Windows\ProfileWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\StartWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\VideoOptionsWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" />

@@ -36,8 +36,6 @@ public class GameNode : MonoBehaviour {
 
 	public void UnlockNode(){
 		nodeStatus = NodeStatus.Unlocked;
-		//isExplored = true;
-		//isCurrent = false;
 		spriteRenderer.sprite = unlockedSprite;
 	}
 
@@ -51,7 +49,7 @@ public class GameNode : MonoBehaviour {
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		if (nodeStatus == NodeStatus.Locked) {
-			spriteRenderer.sprite = unlockedSprite;
+			spriteRenderer.sprite = lockedSprite;
 		} else {
 			spriteRenderer.sprite = unlockedSprite;
 		}
