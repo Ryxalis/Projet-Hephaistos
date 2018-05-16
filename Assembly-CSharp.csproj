@@ -76,7 +76,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\MainLoop.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\WorldManager.cs" />
      <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
