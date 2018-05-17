@@ -72,15 +72,21 @@ public class WorldManager : MonoBehaviour {
 
 	IEnumerator executeLevel(){
 		if (currentGameNode.hasDialogueStartLevel && currentGameNode.dialogueStartLevelName != "") {
+			print ("Dialogue");
 			currentGameNode.DialogueStartSequence ();
 			while (DiaMasterManager.currentDialogue != "none") {
-				print ("WAIT");
-				yield return null;//new WaitForSeconds (0.1f);
+				yield return null;
 			}
 		}
 
+		if (currentGameNode.hasLevel && currentGameNode.levelNumber != -1) {
+			currentGameNode.LevelSequence();
+			print ("InGame");
+			while (!LevelManager.levelFinished) {
+				yield return null;
+			}
+		}
 		print ("OK");
-		//currentGameNode.LevelSequence ();
 
 		currentGameNode.UnlockNode ();
 		isDoingCurrentNode = false;

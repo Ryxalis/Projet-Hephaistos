@@ -2,52 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour {
 
-	public GameObject game;
+	static public bool levelFinished;
+
 	public GameObject[] levels;
-	public GameObject dialoguePanel;
 
 	private DiaMasterManager diaMasterManager;
 	private bool isPaused;
 	public bool get_isPaused(){ return isPaused; }
-	private bool gameStarted;
-	public bool get_gameStarted(){ return gameStarted; }
 	private TimeManager timeManager;
 
 	void Awake() {
 		timeManager = GameObject.Find ("TimeManager").GetComponent<TimeManager> ();
-		diaMasterManager = dialoguePanel.GetComponent<DiaMasterManager> ();
-		dialoguePanel.SetActive (false);
 		foreach (var level in levels) {
 			level.SetActive (false);
 		}
-		gameStarted = false;
+		levelFinished = true;
 		isPaused = false;
-		game.SetActive (false);
 	}
 
 	void Update () {
-
+		if (Input.GetKeyDown (KeyCode.K)) {  // temporary condition
+			levelFinished = true;
+		}
 	}
 
-	public void StartGame(){
+	/*public void StartGame(){
 		gameStarted = true;
 		game.SetActive (true);
-	}
+	}*/
 
 	public void StartLevel(int level){
-		gameStarted = true;
-		game.SetActive (true);
+		levelFinished = false;
+		//game.SetActive (true);
+		print(level);
 		levels [level].SetActive (true);
 	}
 
-	public void StartDialogue(string dialogueName){
+	/*public void StartDialogue(string dialogueName){
 		if (DiaMasterManager.currentDialogue == "none") {
 			dialoguePanel.SetActive (true);
 			diaMasterManager.StartDialogue (dialogueName);
 		}
-	}
+	}*/
 
 	public void TogglePause(bool toggle){
 		if (toggle && Time.timeScale == 1)

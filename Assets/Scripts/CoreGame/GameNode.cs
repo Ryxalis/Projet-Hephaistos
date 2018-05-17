@@ -30,7 +30,7 @@ public class GameNode : MonoBehaviour {
 	public NodeStatus nodeStatus = NodeStatus.Locked;
 	public bool isCurrent;
 
-	private GameManager gameManager;
+	public LevelManager levelManager;
 	private SpriteRenderer spriteRenderer;
 	private WorldWindow worldWindow;
 
@@ -46,7 +46,6 @@ public class GameNode : MonoBehaviour {
 
 	void Awake(){
 		worldWindow = GetComponentInParent<WorldWindow> ();
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		if (nodeStatus == NodeStatus.Locked) {
 			spriteRenderer.sprite = lockedSprite;
@@ -70,8 +69,8 @@ public class GameNode : MonoBehaviour {
 	}
 
 	public void LevelSequence(){
-		if (hasLevel && levelNumber > 0) {
-			gameManager.StartLevel (levelNumber);
+		if (hasLevel && levelNumber >= 0) {
+			worldWindow.StartLevel (levelNumber);
 		}
 	}
 

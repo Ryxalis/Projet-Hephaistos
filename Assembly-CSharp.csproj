@@ -78,7 +78,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
      <Compile Include="Assets\Scripts\CoreGame\WorldManager.cs" />
      <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />

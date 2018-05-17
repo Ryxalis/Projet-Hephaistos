@@ -8,17 +8,17 @@ public class m_UI : MonoBehaviour {
 	public Text continueText;
 	public float blinkTime;
 
-	private GameManager gManager;
+	//private GameManager gManager;
 	private bool isBlink;
 
 	void Start () {
-		gManager = GameObject.FindObjectOfType<GameManager> ();
+		//gManager = GameObject.FindObjectOfType<GameManager> ();
 		isBlink = true;
 		continueText.text = "PRESS Z KEY TO START";
 	}
 
 	void Update () {
-		if (!gManager.get_gameStarted ()) {
+		/*if (!gManager.get_gameStarted ()) {
 			blinkTime++;
 			if (blinkTime % 40 == 0) {
 				isBlink = !isBlink;
@@ -28,6 +28,6 @@ public class m_UI : MonoBehaviour {
 			continueText.canvasRenderer.SetAlpha (0);
 			blinkTime = 0;
 			isBlink = true;
-		}
+		}*/
 	}
 }
