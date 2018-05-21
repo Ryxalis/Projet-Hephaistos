@@ -24,7 +24,7 @@ public class WorldWindow : GenericWindow {
 			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
 		}
 		wManager.Open ((int)levelWindow.window - 1);
-		if (LevelManager.levelFinished == true) {
+		if (LevelManager.isDoingLevel == false) {
 			levelManager.StartLevel(levelNumber);
 		}
 	}

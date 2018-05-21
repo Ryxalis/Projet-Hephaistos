@@ -17,7 +17,7 @@ public class IngameWindow : GenericWindow {
 	}
 
 	void BackToWorld(){
-		if (LevelManager.levelFinished == true) {
+		if (LevelManager.isDoingLevel == false) {
 			if (nextWindow.activateBackground) {
 				WindowsManager.backgrounds.Add ((int)thisWindow - 1);
 			}

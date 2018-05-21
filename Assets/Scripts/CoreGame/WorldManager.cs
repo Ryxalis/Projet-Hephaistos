@@ -82,12 +82,10 @@ public class WorldManager : MonoBehaviour {
 		if (currentGameNode.hasLevel && currentGameNode.levelNumber != -1) {
 			currentGameNode.LevelSequence();
 			print ("InGame");
-			while (!LevelManager.levelFinished) {
+			while (LevelManager.isDoingLevel) {
 				yield return null;
 			}
 		}
-		print ("OK");
-
 		currentGameNode.UnlockNode ();
 		isDoingCurrentNode = false;
 	}
