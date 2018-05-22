@@ -18,7 +18,9 @@ public class GameLevel : MonoBehaviour {
 	}
 
 	void Update() {
-		
+		if (Input.GetKeyDown (KeyCode.K)) {
+			Finish ();
+		}
 	}
 
 	public void Finish(){

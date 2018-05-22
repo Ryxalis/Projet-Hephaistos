@@ -23,9 +23,8 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.K)) {  // temporary condition
-			currentLevel.Finish();
-			isDoingLevel= currentLevel.isActive;
+		if(!currentLevel.isActive){
+			isDoingLevel= false;
 			currentLevel = null;
 		}
 	}
