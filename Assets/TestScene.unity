@@ -417,7 +417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 113, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &13242829
@@ -2743,11 +2743,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 0}
   nodeLeft: {fileID: 916563200}
   nodeRight: {fileID: 353198705}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
   hasFork: 0
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: 2
   dialogueStartLevelName: 
   dialogueEndLevelName: 
@@ -6453,11 +6456,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 0}
   nodeLeft: {fileID: 163161831}
   nodeRight: {fileID: 654970440}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
   hasFork: 0
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
@@ -7085,7 +7091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 85, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424116500
@@ -14747,7 +14753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 60, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599575340
@@ -19808,11 +19814,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 21300000, guid: eff475235559d1348beae85c1273fdfa, type: 3}
   nodeLeft: {fileID: 353198705}
   nodeRight: {fileID: 751177165}
   nodeUp: {fileID: 2109232112}
   nodeDown: {fileID: 0}
-  hasFork: 0
+  hasFork: 1
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
@@ -20355,7 +20364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687549968
@@ -21445,11 +21454,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 0}
   nodeLeft: {fileID: 654970440}
   nodeRight: {fileID: 0}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
   hasFork: 0
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
@@ -21698,7 +21710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761828750
@@ -22377,7 +22389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776286425
@@ -24405,7 +24417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 103, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863789370
@@ -25237,11 +25249,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 0}
   nodeLeft: {fileID: 1806382030}
   nodeRight: {fileID: 163161831}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
   hasFork: 0
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: 1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
@@ -26911,7 +26926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971987499
@@ -29168,6 +29183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldPlayer: {fileID: 1483385799}
   currentGameNode: {fileID: 1806382030}
+  nextGameNode: {fileID: 0}
   speed: 10
 --- !u!1 &1072571802
 GameObject:
@@ -34446,7 +34462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 60, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1113199080
@@ -36173,7 +36189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201451856
@@ -38657,7 +38673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1322772120
@@ -42252,7 +42268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463375396
@@ -43489,7 +43505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516746234
@@ -46758,7 +46774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1668441886
@@ -48981,11 +48997,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 0}
   nodeLeft: {fileID: 0}
   nodeRight: {fileID: 916563200}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 0}
   hasFork: 0
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: 0
   dialogueStartLevelName: 
   dialogueEndLevelName: 
@@ -50444,7 +50463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 85, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843244273
@@ -50605,7 +50624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 89.375, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851090173
@@ -56393,7 +56412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930773928
@@ -58003,7 +58022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 85, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005107778
@@ -58366,7 +58385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2028651600
@@ -59230,7 +59249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064821607
@@ -59944,11 +59963,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSprite: {fileID: 21300000, guid: 5c173523e97c19d46830249485c4f9d1, type: 3}
   unlockedSprite: {fileID: 21300000, guid: a9e60b9fbb2cf9143aa1c97cded6f049, type: 3}
+  deadSprite: {fileID: 0}
   nodeLeft: {fileID: 0}
   nodeRight: {fileID: 0}
   nodeUp: {fileID: 0}
   nodeDown: {fileID: 654970440}
   hasFork: 0
+  hasStartDialogue: 0
+  hesEndDialogue: 0
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
