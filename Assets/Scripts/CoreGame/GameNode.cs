@@ -16,8 +16,8 @@ public class GameNode : MonoBehaviour {
 	public GameNode nodeDown = null;
 
 	public bool hasFork = false;
-	public bool hasStartDialogue = false;
-	public bool hesEndDialogue = false;
+	//public bool hasStartDialogue = false;
+	//public bool hasEndDialogue = false;
 
 	public int levelNumber = -1;
 	public string dialogueStartLevelName = "";
@@ -37,7 +37,7 @@ public class GameNode : MonoBehaviour {
 
 	void Awake(){
 		worldWindow = GetComponentInParent<WorldWindow> ();
-		spriteRenderer = GetComponent<SpriteRenderer> ();
+			spriteRenderer = GetComponent<SpriteRenderer> ();
 		if (nodeStatus == NodeStatus.Locked) {
 			spriteRenderer.sprite = lockedSprite;
 		} else {
@@ -63,11 +63,17 @@ public class GameNode : MonoBehaviour {
 	}
 
 	public void ForkSequence(GameNode nextGameNode){
-		print (nextGameNode);
 		if (nodeUp && nodeUp != nextGameNode) {nodeUp.KillNode ();}
 		if (nodeDown && nodeDown != nextGameNode) {nodeDown.KillNode ();}
-		if (nodeUp && nodeLeft != nextGameNode) {nodeLeft.KillNode ();}
+		if (nodeLeft && nodeLeft != nextGameNode) {nodeLeft.KillNode ();}
 		if (nodeRight && nodeRight != nextGameNode) {nodeRight.KillNode ();}
+	}
+
+	public void ForkSequence(string chosenDirection){
+		if (chosenDirection != "Up" && nodeUp) {nodeUp.KillNode ();}
+		if (chosenDirection != "Down" && nodeDown) {nodeDown.KillNode ();}
+		if (chosenDirection != "Left" && nodeLeft) {nodeLeft.KillNode ();}
+		if (chosenDirection != "Right" && nodeRight) {nodeRight.KillNode ();}
 	}
 
 	public void KillNode(){
@@ -77,7 +83,4 @@ public class GameNode : MonoBehaviour {
 		}
 	}
 
-	public void ForkSequence(string chosenDirection){
-		// do fork things
-	}
 }

@@ -31,7 +31,6 @@ public class LevelManager : MonoBehaviour {
 
 	public void StartLevel(int level){
 		isDoingLevel = true;
-		print(level);
 		currentLevel = levels [level];
 		currentLevel.StartLevel();
 	}

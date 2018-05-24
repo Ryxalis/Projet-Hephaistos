@@ -10,6 +10,7 @@ public class WorldManager : MonoBehaviour {
 	private bool isTravelling = false;
 	private bool isDoingCurrentNode = false;
 
+	public LevelManager levelManager;
 	public GameObject worldPlayer;
 	public GameNode currentGameNode;
 	public GameNode nextGameNode;
@@ -71,6 +72,8 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	IEnumerator executeLevel(){
+
+		//Do the startDialogue if there is one
 		if (currentGameNode.dialogueStartLevelName != "") {
 			currentGameNode.DialogueStartSequence ();
 			while (DiaMasterManager.currentDialogue != "none") {
@@ -78,13 +81,32 @@ public class WorldManager : MonoBehaviour {
 			}
 		}
 
+		//Do the level if there is one
+		string end = "";
 		if (currentGameNode.levelNumber != -1) {
 			currentGameNode.LevelSequence();
 			while (LevelManager.isDoingLevel) {
+				if (levelManager.currentLevel.endDirection != "") {
+					end = levelManager.currentLevel.endDirection;
+					print (end);
+				}
 				yield return null;
 			}
 		}
+		print (end);
+		if (currentGameNode.hasFork && end != "") {
+			currentGameNode.ForkSequence (end);
+		}
+
+		//Do the endDialogue if there is one
+		if (currentGameNode.dialogueEndLevelName != "") {
+			currentGameNode.DialogueEndSequence ();
+			while (DiaMasterManager.currentDialogue != "none") {
+				yield return null;
+			}
+		}
+
 		currentGameNode.UnlockNode ();
 		isDoingCurrentNode = false;
 	}
-}
+}	
