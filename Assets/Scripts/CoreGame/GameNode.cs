@@ -2,42 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum NodeStatus {Locked, Unlocked, Dead}
-
-public class GameNode : MonoBehaviour {
+public class GameNode : AbstractGameNode {
 
 	public Sprite lockedSprite;
 	public Sprite unlockedSprite;
 	public Sprite deadSprite;
 
-	public GameNode nodeLeft = null;		// null if there is none
-	public GameNode nodeRight = null;
-	public GameNode nodeUp = null;
-	public GameNode nodeDown = null;
+
+	public AbstractGameNode nodeLeft = null;		// null if there is none
+	public AbstractGameNode nodeRight = null;
+	public AbstractGameNode nodeUp = null;
+	public AbstractGameNode nodeDown = null;
 
 	public bool hasFork = false;
-	//public bool hasStartDialogue = false;
-	//public bool hasEndDialogue = false;
-
 	public int levelNumber = -1;
 	public string dialogueStartLevelName = "";
 	public string dialogueEndLevelName = "";
-	//fork things?
-
-	public NodeStatus nodeStatus = NodeStatus.Locked;
 
 	public LevelManager levelManager;
 	private SpriteRenderer spriteRenderer;
 	private WorldWindow worldWindow;
 
-	public void UnlockNode(){
-		nodeStatus = NodeStatus.Unlocked;
-		spriteRenderer.sprite = unlockedSprite;
-	}
-
 	void Awake(){
 		worldWindow = GetComponentInParent<WorldWindow> ();
-			spriteRenderer = GetComponent<SpriteRenderer> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
 		if (nodeStatus == NodeStatus.Locked) {
 			spriteRenderer.sprite = lockedSprite;
 		} else {
@@ -62,7 +50,7 @@ public class GameNode : MonoBehaviour {
 		}
 	}
 
-	public void ForkSequence(GameNode nextGameNode){
+	public void ForkSequence(AbstractGameNode nextGameNode){
 		if (nodeUp && nodeUp != nextGameNode) {nodeUp.KillNode ();}
 		if (nodeDown && nodeDown != nextGameNode) {nodeDown.KillNode ();}
 		if (nodeLeft && nodeLeft != nextGameNode) {nodeLeft.KillNode ();}
@@ -76,11 +64,16 @@ public class GameNode : MonoBehaviour {
 		if (chosenDirection != "Right" && nodeRight) {nodeRight.KillNode ();}
 	}
 
-	public void KillNode(){
+	public override void KillNode(){
 		if (nodeStatus == NodeStatus.Locked) {
 			nodeStatus = NodeStatus.Dead;
 			spriteRenderer.sprite = deadSprite;
 		}
+	}
+
+	public override void UnlockNode(){
+		nodeStatus = NodeStatus.Unlocked;
+		spriteRenderer.sprite = unlockedSprite;
 	}
 
 }

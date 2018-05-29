@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DialogueWindow.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\AbstractGameNode.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Duck.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\FaceDirection.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Game\TileBackground.cs" />
      <Compile Include="Assets\Scripts\CoreGame\GameLevel.cs" />
      <Compile Include="Assets\Scripts\CoreGame\GameNode.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\GameNodeTravel.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />

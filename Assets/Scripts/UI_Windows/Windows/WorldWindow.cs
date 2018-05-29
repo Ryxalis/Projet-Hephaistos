@@ -19,7 +19,7 @@ public class WorldWindow : GenericWindow {
 		}
 	}
 
-		public void StartLevel(int levelNumber){
+	public void StartLevel(int levelNumber){
 		if (nextWindow.activateBackground) {
 			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
 		}

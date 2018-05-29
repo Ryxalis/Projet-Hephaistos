@@ -12,66 +12,83 @@ public class WorldManager : MonoBehaviour {
 
 	public LevelManager levelManager;
 	public GameObject worldPlayer;
-	public GameNode currentGameNode;
-	public GameNode nextGameNode;
+	public AbstractGameNode currentAbstractNode;
+	//public AbstractGameNode nextGameNode;
 	public float speed = 10f;
 
 	void Awake() {
 		gameStatus = GameStatus.Menu;
-		worldPlayer.transform.position = currentGameNode.transform.position;
-		nextGameNode = currentGameNode;
-		//worldWindow = GetComponentInParent<WorldWindow> ();
+		worldPlayer.transform.position = currentAbstractNode.transform.position;
+		//nextGameNode = currentAbstractNode;
 	}
 
 	void Update () {
-		if (!isTravelling && !isDoingCurrentNode) {
-			if (Input.GetAxis ("Vertical") > 0 && currentGameNode.nodeUp && currentGameNode.nodeUp.nodeStatus != NodeStatus.Dead) {
-				if (currentGameNode.nodeUp.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
-					nextGameNode = currentGameNode.nodeUp;
+		AbstractGameNode nextAbstractNode = currentAbstractNode;
+		if (!isTravelling) {
+			if (!currentAbstractNode.isTravelNode) {
+				GameNode currentGameNode = (GameNode)currentAbstractNode;//currentAbstractNode.gameObject.GetComponent<GameNode> ();
+				if (!isTravelling && !isDoingCurrentNode) {
+					if (Input.GetAxis ("Vertical") > 0 && currentGameNode.nodeUp && currentGameNode.nodeUp.nodeStatus != NodeStatus.Dead) {
+						if (currentGameNode.nodeUp.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
+							nextAbstractNode = currentGameNode.nodeUp;
+						}
+					}
+					if (Input.GetAxis ("Vertical") < 0 && currentGameNode.nodeDown && currentGameNode.nodeDown.nodeStatus != NodeStatus.Dead) {
+						if (currentGameNode.nodeDown.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
+							nextAbstractNode = currentGameNode.nodeDown;
+						}
+					}
+					if (Input.GetAxis ("Horizontal") < 0 && currentGameNode.nodeLeft && currentGameNode.nodeLeft.nodeStatus != NodeStatus.Dead) {
+						if (currentGameNode.nodeLeft.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
+							nextAbstractNode = currentGameNode.nodeLeft;
+						}
+					}
+					if (Input.GetAxis ("Horizontal") > 0 && currentGameNode.nodeRight && currentGameNode.nodeRight.nodeStatus != NodeStatus.Dead) {
+						if (currentGameNode.nodeRight.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
+							nextAbstractNode = currentGameNode.nodeRight;
+						}
+					}
+					if (Input.GetKeyDown (KeyCode.Space)) {
+						isDoingCurrentNode = true;
+						StartCoroutine (executeLevel (currentGameNode));
+					}
 				}
+			} else {
+				GameNodeTravel currentTravelNode = (GameNodeTravel)currentAbstractNode;
+				nextAbstractNode = currentTravelNode.nextNode;
 			}
-			if (Input.GetAxis ("Vertical") < 0 && currentGameNode.nodeDown && currentGameNode.nodeDown.nodeStatus != NodeStatus.Dead) {
-				if (currentGameNode.nodeDown.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
-					nextGameNode = currentGameNode.nodeDown;
+		}
+
+
+		if(currentAbstractNode != nextAbstractNode){
+			StartCoroutine( Travel (nextAbstractNode ) );
+
+			if (nextAbstractNode.isTravelNode) {
+				GameNodeTravel nextTravelNode = (GameNodeTravel)nextAbstractNode;
+				if (currentAbstractNode == nextTravelNode.nextNode1) {
+					nextTravelNode.nextNode = nextTravelNode.nextNode2;
 				}
-			}
-			if (Input.GetAxis ("Horizontal") < 0 && currentGameNode.nodeLeft && currentGameNode.nodeLeft.nodeStatus != NodeStatus.Dead) {
-				if (currentGameNode.nodeLeft.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
-					nextGameNode = currentGameNode.nodeLeft;
+				if (currentAbstractNode == nextTravelNode.nextNode2) {
+					nextTravelNode.nextNode = nextTravelNode.nextNode1;
 				}
-			}
-			if (Input.GetAxis ("Horizontal") > 0 && currentGameNode.nodeRight && currentGameNode.nodeRight.nodeStatus != NodeStatus.Dead) {
-				if (currentGameNode.nodeRight.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
-					nextGameNode = currentGameNode.nodeRight;
-				}
-			}
-			if (Input.GetKeyDown (KeyCode.Space)) {
-				isDoingCurrentNode = true;
-				StartCoroutine(executeLevel ());
-			}
-			if (currentGameNode != nextGameNode) {
-				StartCoroutine (Travel ());
-				currentGameNode = nextGameNode;
 			}
 		}
 	}
 
-	IEnumerator Travel(){
+	IEnumerator Travel(AbstractGameNode nextNode){
 		isTravelling = true;
-		if (currentGameNode.hasFork) {
-			currentGameNode.ForkSequence (nextGameNode);
-		}
-		Vector3 CurrentToDest = worldPlayer.transform.position - nextGameNode.transform.position;
-		while (	(worldPlayer.transform.position - nextGameNode.transform.position).magnitude > 1 ) {
-			CurrentToDest = worldPlayer.transform.position - nextGameNode.transform.position;
+		Vector3 CurrentToDest = worldPlayer.transform.position - nextNode.transform.position;
+		while (	(worldPlayer.transform.position - nextNode.transform.position).magnitude > 1 ) {
+			CurrentToDest = worldPlayer.transform.position - nextNode.transform.position;
 			worldPlayer.transform.position += -CurrentToDest.normalized * Time.deltaTime * speed;
 			yield return null;
 		}
-		worldPlayer.transform.position = currentGameNode.transform.position;
+		worldPlayer.transform.position = nextNode.transform.position;
 		isTravelling = false;
+		currentAbstractNode = nextNode;
 	}
 
-	IEnumerator executeLevel(){
+	IEnumerator executeLevel(GameNode currentGameNode){
 
 		//Do the startDialogue if there is one
 		if (currentGameNode.dialogueStartLevelName != "") {
@@ -88,14 +105,9 @@ public class WorldManager : MonoBehaviour {
 			while (LevelManager.isDoingLevel) {
 				if (levelManager.currentLevel.endDirection != "") {
 					end = levelManager.currentLevel.endDirection;
-					print (end);
 				}
 				yield return null;
 			}
-		}
-		print (end);
-		if (currentGameNode.hasFork && end != "") {
-			currentGameNode.ForkSequence (end);
 		}
 
 		//Do the endDialogue if there is one
@@ -107,6 +119,11 @@ public class WorldManager : MonoBehaviour {
 		}
 
 		currentGameNode.UnlockNode ();
+
+		//better to fork once the node is unlocked
+		if (currentGameNode.hasFork && end != "") {
+			currentGameNode.ForkSequence (end);
+		}
 		isDoingCurrentNode = false;
 	}
 }	
