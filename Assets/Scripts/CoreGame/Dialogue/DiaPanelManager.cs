@@ -16,10 +16,12 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 	private DiaPanelConfig rightPanel;
 	private DiaPanelConfig leftPanel;
 	private DiaNarrativeEvent currentEvent;
-	private bool leftCharacterActive = true;
-	private int stepIndex = 0;
+	private bool leftCharacterActive;
+	private int stepIndex;
 
 	public void BootSequence(string sceneName){
+		leftCharacterActive = true;
+		stepIndex = 0;
 		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<DiaPanelConfig> ();
 		leftPanel  = GameObject.Find ("LeftCharacterPanel" ).GetComponent<DiaPanelConfig> ();
 		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneName);

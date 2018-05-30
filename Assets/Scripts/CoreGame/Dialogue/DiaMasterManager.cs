@@ -23,9 +23,7 @@ public class DiaMasterManager : MonoBehaviour {
 	public static string currentDialogue = "none";
 
 	void Update(){
-		if (Input.GetKeyDown(KeyCode.A) && currentDialogue == "none") {
-			StartDialogue ("Event1");
-		}
+
 	}
 
 	public void StartDialogue(string sceneName){

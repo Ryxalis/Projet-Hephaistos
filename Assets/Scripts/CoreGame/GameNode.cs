@@ -18,6 +18,7 @@ public class GameNode : AbstractGameNode {
 	public int levelNumber = -1;
 	public string dialogueStartLevelName = "";
 	public string dialogueEndLevelName = "";
+	public string[] additionalDialogues;
 
 	public LevelManager levelManager;
 	private SpriteRenderer spriteRenderer;
@@ -41,6 +42,11 @@ public class GameNode : AbstractGameNode {
 	public void DialogueEndSequence(){
 		if(dialogueEndLevelName != ""){
 			worldWindow.StartDialogue(dialogueEndLevelName);
+		}
+	}
+	public void DialogueAdditionalSequence(){
+		if(additionalDialogues.Length > 0 && additionalDialogues[0] != ""){
+			worldWindow.StartDialogue(additionalDialogues[0]);
 		}
 	}
 

@@ -2765,6 +2765,7 @@ MonoBehaviour:
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
+  additionalDialogues: []
   levelManager: {fileID: 1315649196}
 --- !u!4 &163161832
 Transform:
@@ -6482,6 +6483,7 @@ MonoBehaviour:
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
+  additionalDialogues: []
   levelManager: {fileID: 1315649196}
 --- !u!4 &353198706
 Transform:
@@ -19839,6 +19841,7 @@ MonoBehaviour:
   levelNumber: 1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
+  additionalDialogues: []
   levelManager: {fileID: 1315649196}
 --- !u!4 &654970441
 Transform:
@@ -21478,6 +21481,7 @@ MonoBehaviour:
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
+  additionalDialogues: []
   levelManager: {fileID: 1315649196}
 --- !u!4 &751177166
 Transform:
@@ -25329,6 +25333,7 @@ MonoBehaviour:
   levelNumber: -1
   dialogueStartLevelName: 
   dialogueEndLevelName: 
+  additionalDialogues: []
   levelManager: {fileID: 1315649196}
 --- !u!1 &916563199
 GameObject:
@@ -49109,6 +49114,8 @@ MonoBehaviour:
   levelNumber: 0
   dialogueStartLevelName: 
   dialogueEndLevelName: 
+  additionalDialogues:
+  - Event2
   levelManager: {fileID: 1315649196}
 --- !u!4 &1806382031
 Transform:

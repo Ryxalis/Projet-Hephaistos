@@ -26,7 +26,7 @@ public class WorldManager : MonoBehaviour {
 		AbstractGameNode nextAbstractNode = currentAbstractNode;
 		if (!isTravelling) {
 			if (!currentAbstractNode.isTravelNode) {
-				GameNode currentGameNode = (GameNode)currentAbstractNode;//currentAbstractNode.gameObject.GetComponent<GameNode> ();
+				GameNode currentGameNode = (GameNode)currentAbstractNode;
 				if (!isTravelling && !isDoingCurrentNode) {
 					if (Input.GetAxis ("Vertical") > 0 && currentGameNode.nodeUp && currentGameNode.nodeUp.nodeStatus != NodeStatus.Dead) {
 						if (currentGameNode.nodeUp.nodeStatus == NodeStatus.Unlocked || currentGameNode.nodeStatus == NodeStatus.Unlocked) {
@@ -56,6 +56,7 @@ public class WorldManager : MonoBehaviour {
 			} else {
 				GameNodeTravel currentTravelNode = (GameNodeTravel)currentAbstractNode;
 				nextAbstractNode = currentTravelNode.nextNode;
+				currentAbstractNode.UnlockNode ();
 			}
 		}
 
@@ -89,41 +90,50 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	IEnumerator executeLevel(GameNode currentGameNode){
-
-		//Do the startDialogue if there is one
-		if (currentGameNode.dialogueStartLevelName != "") {
-			currentGameNode.DialogueStartSequence ();
-			while (DiaMasterManager.currentDialogue != "none") {
-				yield return null;
-			}
-		}
-
-		//Do the level if there is one
-		string end = "";
-		if (currentGameNode.levelNumber != -1) {
-			currentGameNode.LevelSequence();
-			while (LevelManager.isDoingLevel) {
-				if (levelManager.currentLevel.endDirection != "") {
-					end = levelManager.currentLevel.endDirection;
+		if (currentGameNode.nodeStatus == NodeStatus.Locked) {
+			//Do the startDialogue if there is one
+			if (currentGameNode.dialogueStartLevelName != "") {
+				currentGameNode.DialogueStartSequence ();
+				while (DiaMasterManager.currentDialogue != "none") {
+					yield return null;
 				}
-				yield return null;
+			}
+
+			//Do the level if there is one
+			string end = "";
+			if (currentGameNode.levelNumber != -1) {
+				currentGameNode.LevelSequence ();
+				while (LevelManager.isDoingLevel) {
+					if (levelManager.currentLevel.endDirection != "") {
+						end = levelManager.currentLevel.endDirection;
+					}
+					yield return null;
+				}
+			}
+
+			//Do the endDialogue if there is one
+			if (currentGameNode.dialogueEndLevelName != "") {
+				currentGameNode.DialogueEndSequence ();
+				while (DiaMasterManager.currentDialogue != "none") {
+					yield return null;
+				}
+			}
+
+			currentGameNode.UnlockNode ();
+
+			//better to fork once the node is unlocked
+			if (currentGameNode.hasFork && end != "") {
+				currentGameNode.ForkSequence (end);
 			}
 		}
-
-		//Do the endDialogue if there is one
-		if (currentGameNode.dialogueEndLevelName != "") {
-			currentGameNode.DialogueEndSequence ();
-			while (DiaMasterManager.currentDialogue != "none") {
-				yield return null;
+		else if (currentGameNode.nodeStatus == NodeStatus.Unlocked) {
+			if (currentGameNode.additionalDialogues.Length > 0) {
+				currentGameNode.DialogueAdditionalSequence();
+				while (DiaMasterManager.currentDialogue != "none") {
+					yield return null;
+				}
 			}
-		}
-
-		currentGameNode.UnlockNode ();
-
-		//better to fork once the node is unlocked
-		if (currentGameNode.hasFork && end != "") {
-			currentGameNode.ForkSequence (end);
 		}
 		isDoingCurrentNode = false;
 	}
-}	
+}

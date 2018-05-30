@@ -9,7 +9,6 @@ public class GameNodeTravel : AbstractGameNode {
 	public AbstractGameNode nextNode;
 
 	public override void KillNode(){
-		print ("KILL");
 		if (nodeStatus == NodeStatus.Locked) {
 			nodeStatus = NodeStatus.Dead;
 		}

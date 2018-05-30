@@ -5,16 +5,19 @@
       <File FileName="Assets\Scripts\CoreGame\GameLevel.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Managers\LevelManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI_Windows\Windows\IngameWindow.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" Line="22" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\WorldManager.cs" Line="54" Column="7" />
+      <File FileName="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" Line="18" Column="32" />
+      <File FileName="Assets\Scripts\CoreGame\WorldManager.cs" Line="64" Column="47" />
       <File FileName="Assets\Scripts\UI_Windows\Windows\StartWindow.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Behaviors\SlideDownWall.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Input\Input\InputState.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Behaviors\Jump.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\GameNode.cs" Line="60" Column="51" />
-      <File FileName="Assets\Scripts\CoreGame\AbstractGameNode.cs" Line="11" Column="2" />
-      <File FileName="Assets\Scripts\CoreGame\GameNodeTravel.cs" Line="17" Column="4" />
+      <File FileName="Assets\Scripts\CoreGame\GameNode.cs" Line="73" Column="15" />
+      <File FileName="Assets\Scripts\CoreGame\AbstractGameNode.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\GameNodeTravel.cs" Line="30" Column="2" />
+      <File FileName="Assets\Resources\Dialogues\Event2.json" Line="16" Column="24" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" Line="20" Column="27" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" Line="19" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,6 +27,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="CoreGame" expanded="True">
                   <Node name="Behaviors" expanded="True" />
+                  <Node name="Dialogue" expanded="True" />
                   <Node name="Input" expanded="True">
                     <Node name="Input" expanded="True" />
                   </Node>
@@ -45,9 +49,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Bricout\Documents\Unity\Project Hephaistos\Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" line="22" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
