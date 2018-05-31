@@ -19,6 +19,7 @@ public class GameNode : AbstractGameNode {
 	public string dialogueStartLevelName = "";
 	public string dialogueEndLevelName = "";
 	public string[] additionalDialogues;
+	public int currentAdditionalDialogueID = 0;
 
 	public LevelManager levelManager;
 	private SpriteRenderer spriteRenderer;
@@ -45,8 +46,11 @@ public class GameNode : AbstractGameNode {
 		}
 	}
 	public void DialogueAdditionalSequence(){
-		if(additionalDialogues.Length > 0 && additionalDialogues[0] != ""){
-			worldWindow.StartDialogue(additionalDialogues[0]);
+		if(additionalDialogues.Length > 0 && currentAdditionalDialogueID < additionalDialogues.Length){
+			if (additionalDialogues [currentAdditionalDialogueID] != "") {
+				worldWindow.StartDialogue (additionalDialogues [currentAdditionalDialogueID]);
+			}
+			currentAdditionalDialogueID = Mathf.Min(currentAdditionalDialogueID+1, additionalDialogues.Length-1);
 		}
 	}
 

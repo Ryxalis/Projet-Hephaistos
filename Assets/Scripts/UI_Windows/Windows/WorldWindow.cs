@@ -10,7 +10,7 @@ public class WorldWindow : GenericWindow {
 	public WindowBackgroundStruct levelWindow;
 
 	public void StartDialogue(string dialogueName){
-		if (nextWindow.activateBackground) {
+		if (dialogueWindow.activateBackground) {
 			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
 		}
 		wManager.Open ((int)dialogueWindow.window - 1);
@@ -20,7 +20,7 @@ public class WorldWindow : GenericWindow {
 	}
 
 	public void StartLevel(int levelNumber){
-		if (nextWindow.activateBackground) {
+		if (levelWindow.activateBackground) {
 			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
 		}
 		wManager.Open ((int)levelWindow.window - 1);

@@ -27,7 +27,7 @@ public class WindowsManager : MonoBehaviour {
 		}
 	}
 
-	public GenericWindow Open(int value, int background = -1){
+	public GenericWindow Open(int value){
 		if(value < 0 || value >= windows.Length){
 			return null;
 		}

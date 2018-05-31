@@ -2766,6 +2766,7 @@ MonoBehaviour:
   dialogueStartLevelName: 
   dialogueEndLevelName: 
   additionalDialogues: []
+  currentAdditionalDialogueID: 0
   levelManager: {fileID: 1315649196}
 --- !u!4 &163161832
 Transform:
@@ -6484,6 +6485,7 @@ MonoBehaviour:
   dialogueStartLevelName: 
   dialogueEndLevelName: 
   additionalDialogues: []
+  currentAdditionalDialogueID: 0
   levelManager: {fileID: 1315649196}
 --- !u!4 &353198706
 Transform:
@@ -19842,6 +19844,7 @@ MonoBehaviour:
   dialogueStartLevelName: 
   dialogueEndLevelName: 
   additionalDialogues: []
+  currentAdditionalDialogueID: 0
   levelManager: {fileID: 1315649196}
 --- !u!4 &654970441
 Transform:
@@ -21482,6 +21485,7 @@ MonoBehaviour:
   dialogueStartLevelName: 
   dialogueEndLevelName: 
   additionalDialogues: []
+  currentAdditionalDialogueID: 0
   levelManager: {fileID: 1315649196}
 --- !u!4 &751177166
 Transform:
@@ -24679,12 +24683,12 @@ MonoBehaviour:
   previousWindow:
     activateBackground: 0
     window: 0
-  thisWindow: 0
+  thisWindow: 9
   firstSelected: {fileID: 0}
   diaMasterManager: {fileID: 277077458}
   levelManager: {fileID: 1315649196}
   dialogueWindow:
-    activateBackground: 0
+    activateBackground: 1
     window: 13
   levelWindow:
     activateBackground: 0
@@ -25334,6 +25338,7 @@ MonoBehaviour:
   dialogueStartLevelName: 
   dialogueEndLevelName: 
   additionalDialogues: []
+  currentAdditionalDialogueID: 0
   levelManager: {fileID: 1315649196}
 --- !u!1 &916563199
 GameObject:
@@ -49116,6 +49121,9 @@ MonoBehaviour:
   dialogueEndLevelName: 
   additionalDialogues:
   - Event2
+  - Event2
+  - Event3
+  currentAdditionalDialogueID: 0
   levelManager: {fileID: 1315649196}
 --- !u!4 &1806382031
 Transform:
@@ -50329,7 +50337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1838294261
 RectTransform:
   m_ObjectHideFlags: 0

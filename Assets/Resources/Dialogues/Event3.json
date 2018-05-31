@@ -6,79 +6,7 @@
 			"animation": 1,
 			"name": "Ally",
 			"atlasImageName": "Heroine_Angry",
-			"dialogueText": ""
-		},
-		{
-			"characterType": 0,
-			"characterLocation": 1,
-			"animation": 1,
-			"name": "Hero",
-			"atlasImageName": "Hero_Angry",
-			"dialogueText": ""
-		},
-		{
-			"characterType": 0,
-			"characterLocation": 1,
-			"animation": 0,
-			"name": "Hero",
-			"atlasImageName": "Hero_Angry",
-			"dialogueText": "Je ne suis pas content."
-		},
-		{
-			"characterType": 0,
-			"characterLocation": 1,
-			"animation": 0,
-			"name": "Hero",
-			"atlasImageName": "Hero_Angry",
-			"dialogueText": "Mais alors là, pas du tout du tout."
-		},
-		{
-			"characterType": 1,
-			"characterLocation": 0,
-			"animation": 0,
-			"name": "Ally",
-			"atlasImageName": "Heroine_Angry",
-			"dialogueText": "So am I."
-		},
-		{
-			"characterType": 0,
-			"characterLocation": 1,
-			"animation": 0,
-			"name": "Hero",
-			"atlasImageName": "Hero_Default",
-			"dialogueText": "Je suis un défaut."
-		},
-		{
-			"characterType": 1,
-			"characterLocation": 0,
-			"animation": -1,
-			"name": "Ally",
-			"atlasImageName": "Heroine_Neutral",
-			"dialogueText": "Je dégage"
-		},
-		{
-			"characterType": 1,
-			"characterLocation": 0,
-			"animation": 1,
-			"name": "Ally",
-			"atlasImageName": "Heroine_Neutral",
-			"dialogueText": "Je reviens."
-		},
-		{
-			"characterType": 1,
-			"characterLocation": 0,
-			"animation": 0,
-			"name": "Ally",
-			"atlasImageName": "Heroine_Neutral",
-			"dialogueText": "I am a default."
-		},
-		{
-			"characterType": 0,
-			"characterLocation": 1,
-			"animation": -1,
-			"name": "Hero",
-			"atlasImageName": "Hero_Surprised",
-			"dialogueText": "Je suis surpris."
+			"dialogueText": "XDDDDDDDDDDDDDDD"
 		},
 		{
 			"characterType": 1,
@@ -86,7 +14,7 @@
 			"animation": -1,
 			"name": "Ally",
 			"atlasImageName": "Heroine_Surprised",
-			"dialogueText": "Me too."
+			"dialogueText": "TGGGG."
 		}
 	]
 }
