@@ -12,6 +12,7 @@ using JSONFactory;
 public class DiaPanelManager : MonoBehaviour, DiaManager {
 
 	public DiaManagerState currentState { get; private set; }
+	public DiaMasterManager masterManager;
 
 	private DiaPanelConfig rightPanel;
 	private DiaPanelConfig leftPanel;
@@ -24,28 +25,32 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 		stepIndex = 0;
 		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<DiaPanelConfig> ();
 		leftPanel  = GameObject.Find ("LeftCharacterPanel" ).GetComponent<DiaPanelConfig> ();
+		leftPanel.dialogue.text = "";
+		rightPanel.dialogue.text = "";
 		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneName);
 		UpdatePanelState();
 	}
 
 	void Update(){
-		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {// && DiaMasterManager.currentDialogue != "none") {
-			UpdatePanelState ();
-		}
+		UpdatePanelState ();
 	}
 
 	void UpdatePanelState(){
-		if (stepIndex < currentEvent.dialogues.Count) {
-			UpdatePanels ();
+		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {// && DiaMasterManager.currentDialogue != "none") {
+			
+			if (stepIndex < currentEvent.dialogues.Count) {
+				UpdatePanels ();
 
-			if (currentEvent.dialogues [stepIndex].characterLocation == DiaCharacterLocation.Left) {
-				leftCharacterActive = true;
-			} else {
-				leftCharacterActive = false;
+				if (currentEvent.dialogues [stepIndex].characterLocation == DiaCharacterLocation.Left) {
+					leftCharacterActive = true;
+				} else {
+					leftCharacterActive = false;
+				}
+				stepIndex++;
 			}
-			stepIndex++;
-		} else if(DiaMasterManager.currentDialogue != "none") {
-			DiaMasterManager.currentDialogue = "none";
+		}
+		if (masterManager.animationManager.isAnimating == false && stepIndex >= currentEvent.dialogues.Count && DiaMasterManager.currentDialogue != "none") {
+			masterManager.EndDialogue ();
 		}
 	}
 
@@ -55,18 +60,18 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 		if (currentDialogue.characterLocation == DiaCharacterLocation.Left) {
 			leftCharacterActive = true;
 			if (currentDialogue.animation == DiaPanelAnimation.Start) {
-				StartCoroutine(DiaMasterManager.animationManager.DiaLeftStartAnimation ());
+				StartCoroutine(masterManager.animationManager.DiaAnimation("Left", "Start"));
 			}
 			if (currentDialogue.animation == DiaPanelAnimation.End) {
-				StartCoroutine(DiaMasterManager.animationManager.DiaLeftEndAnimation ());
+				StartCoroutine(masterManager.animationManager.DiaAnimation("Left", "End"));
 			}
 		} else if (currentDialogue.characterLocation == DiaCharacterLocation.Right) {
 			leftCharacterActive = false;
 			if (currentDialogue.animation == DiaPanelAnimation.Start) {
-				StartCoroutine(DiaMasterManager.animationManager.DiaRightStartAnimation ());
+				StartCoroutine(masterManager.animationManager.DiaAnimation("Right", "Start"));
 			}
 			if (currentDialogue.animation == DiaPanelAnimation.End) {
-				StartCoroutine(DiaMasterManager.animationManager.DiaRightEndAnimation ());
+				StartCoroutine(masterManager.animationManager.DiaAnimation("Right", "End"));
 			}
 		}
 

@@ -5280,6 +5280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b41934466d33aa4aa1f864ad6cf6252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterManager: {fileID: 277077458}
 --- !u!114 &277077461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5291,6 +5292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5432a466fe8dd240b19f4225b5dcf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAnimating: 0
 --- !u!114 &277077462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7362,6 +7364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b41934466d33aa4aa1f864ad6cf6252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterManager: {fileID: 0}
 --- !u!114 &432980587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7373,6 +7376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5432a466fe8dd240b19f4225b5dcf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAnimating: 0
 --- !u!4 &432980588
 Transform:
   m_ObjectHideFlags: 0
@@ -26106,6 +26110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08dad037ec1f832438ab99149b46702f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterManager: {fileID: 277077458}
   isTalking: 0
   avatarImage: {fileID: 1995568459}
   textBG: {fileID: 164611714}
@@ -27169,6 +27174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08dad037ec1f832438ab99149b46702f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterManager: {fileID: 277077458}
   isTalking: 0
   avatarImage: {fileID: 1309651719}
   textBG: {fileID: 734539244}
@@ -49120,7 +49126,7 @@ MonoBehaviour:
   dialogueStartLevelName: 
   dialogueEndLevelName: 
   additionalDialogues:
-  - Event2
+  - Event3
   - Event2
   - Event3
   currentAdditionalDialogueID: 0

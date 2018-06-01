@@ -11,10 +11,18 @@
 		{
 			"characterType": 1,
 			"characterLocation": 0,
-			"animation": -1,
+			"animation": 0,
 			"name": "Ally",
 			"atlasImageName": "Heroine_Surprised",
 			"dialogueText": "TGGGG."
+		},
+		{
+			"characterType": 1,
+			"characterLocation": 0,
+			"animation": -1,
+			"name": "Ally",
+			"atlasImageName": "Heroine_Surprised",
+			"dialogueText": ""
 		}
 	]
 }
