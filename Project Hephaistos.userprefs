@@ -1,39 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Dialogues\Event1.json">
     <Files>
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" Line="24" Column="2" />
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaAtlasManager.cs" Line="17" Column="1" />
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaAnimationManager.cs" Line="9" Column="8" />
-      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" Line="29" Column="33" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaMasterManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaAtlasManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaAnimationManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CoreGame\Dialogue\DiaPanelConfig.cs" Line="64" Column="1" />
-      <File FileName="Assets\Resources\Dialogues\Event3.json" Line="25" Column="21" />
+      <File FileName="Assets\Resources\Dialogues\Event3.json" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Dialogues\Event1.json" Line="89" Column="21" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Project Hephaistos" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="CoreGame" expanded="True">
-                  <Node name="Dialogue" expanded="True">
-                    <Node name="DiaPanelManager.cs" selected="True" />
-                  </Node>
-                </Node>
-                <Node name="UI_Windows" expanded="True">
-                  <Node name="Windows" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="Project Hephaistos" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

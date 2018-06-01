@@ -49123,7 +49123,7 @@ MonoBehaviour:
   nodeDown: {fileID: 0}
   hasFork: 0
   levelNumber: 0
-  dialogueStartLevelName: 
+  dialogueStartLevelName: Event1
   dialogueEndLevelName: 
   additionalDialogues:
   - Event3

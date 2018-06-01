@@ -6,7 +6,7 @@
 			"animation": 1,
 			"name": "Ally",
 			"atlasImageName": "Heroine_Angry",
-			"dialogueText": ""
+			"dialogueText": "Tadaaaaa!"
 		},
 		{
 			"characterType": 0,
@@ -14,7 +14,7 @@
 			"animation": 1,
 			"name": "Hero",
 			"atlasImageName": "Hero_Angry",
-			"dialogueText": ""
+			"dialogueText": "Wouhou!"
 		},
 		{
 			"characterType": 0,
@@ -54,7 +54,7 @@
 			"animation": -1,
 			"name": "Ally",
 			"atlasImageName": "Heroine_Neutral",
-			"dialogueText": "Je dégage"
+			"dialogueText": ""
 		},
 		{
 			"characterType": 1,
@@ -78,7 +78,7 @@
 			"animation": -1,
 			"name": "Hero",
 			"atlasImageName": "Hero_Surprised",
-			"dialogueText": "Je suis surpris."
+			"dialogueText": ""
 		},
 		{
 			"characterType": 1,
@@ -86,7 +86,7 @@
 			"animation": -1,
 			"name": "Ally",
 			"atlasImageName": "Heroine_Surprised",
-			"dialogueText": "Me too."
+			"dialogueText": ""
 		}
 	]
 }
