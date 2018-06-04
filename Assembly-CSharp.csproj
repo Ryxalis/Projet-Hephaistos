@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelConfig.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\DiaPanelManager.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Dialogue\JSONFactory.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Game\EndingCollider.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Game\InstantVelocity.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Game\TileBackground.cs" />
      <Compile Include="Assets\Scripts\CoreGame\GameLevel.cs" />
