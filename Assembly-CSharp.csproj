@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
      <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\SaveManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\DestroyOffscreen.cs" />

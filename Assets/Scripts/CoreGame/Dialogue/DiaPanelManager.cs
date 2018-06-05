@@ -36,7 +36,7 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 	}
 
 	void UpdatePanelState(){
-		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {// && DiaMasterManager.currentDialogue != "none") {
+		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {
 			
 			if (stepIndex < currentEvent.dialogues.Count) {
 				UpdatePanels ();

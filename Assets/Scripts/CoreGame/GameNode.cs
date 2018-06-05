@@ -30,8 +30,10 @@ public class GameNode : AbstractGameNode {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		if (nodeStatus == NodeStatus.Locked) {
 			spriteRenderer.sprite = lockedSprite;
-		} else {
+		} else if (nodeStatus == NodeStatus.Unlocked) {
 			spriteRenderer.sprite = unlockedSprite;
+		} else if (nodeStatus == NodeStatus.Dead) {
+			spriteRenderer.sprite = deadSprite;
 		}
 	}
 

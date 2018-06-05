@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameStatus{Menu, WorldMap, WorldMapDialogue, Level};
+public enum GameStatus{Menu, WorldMap, WorldMapDialogue, InGame};
 
 public class WorldManager : MonoBehaviour {
 
@@ -13,18 +13,20 @@ public class WorldManager : MonoBehaviour {
 	public LevelManager levelManager;
 	public GameObject worldPlayer;
 	public AbstractGameNode currentAbstractNode;
-	//public AbstractGameNode nextGameNode;
 	public float speed = 10f;
+
+	public GenericWindow InGameWindow;
+	public GenericWindow WorldWindow;
+	public GenericWindow DialogueWindow;
 
 	void Awake() {
 		gameStatus = GameStatus.Menu;
 		worldPlayer.transform.position = currentAbstractNode.transform.position;
-		//nextGameNode = currentAbstractNode;
 	}
 
 	void Update () {
 		AbstractGameNode nextAbstractNode = currentAbstractNode;
-		if (!isTravelling) {
+		if (gameStatus == GameStatus.WorldMap && !isTravelling) {
 			if (!currentAbstractNode.isTravelNode) {
 				GameNode currentGameNode = (GameNode)currentAbstractNode;
 				if (!isTravelling && !isDoingCurrentNode) {
@@ -73,6 +75,20 @@ public class WorldManager : MonoBehaviour {
 					nextTravelNode.nextNode = nextTravelNode.nextNode1;
 				}
 			}
+		}
+
+
+		if (DialogueWindow.isActiveAndEnabled) {
+			gameStatus = GameStatus.WorldMapDialogue;
+		}
+		else if (WorldWindow.isActiveAndEnabled) {
+			gameStatus = GameStatus.WorldMap;
+		}
+		else if (InGameWindow.isActiveAndEnabled) {
+			gameStatus = GameStatus.InGame;
+		}
+		else{
+			gameStatus = GameStatus.Menu;
 		}
 	}
 
