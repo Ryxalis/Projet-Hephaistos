@@ -7,20 +7,17 @@ using System.Runtime.Serialization;
 public class SaveData : ISerializable {
 	public int[] nodeStatus;
 	public int currentNode;
-	public int profileNumber;
 
 	public SaveData(){
 	}
 
 	public SaveData(SerializationInfo info, StreamingContext ctxt){
 		nodeStatus    = (int[])info.GetValue ("nodeStatus", typeof(int[]));
-		profileNumber = (int)info.GetValue ("profileNumber", typeof(int));
 		currentNode   = (int)info.GetValue ("currentNode", typeof(int));
 	}
 
 	public void GetObjectData(SerializationInfo info, StreamingContext ctxt){
 		info.AddValue ("nodeStatus", nodeStatus);
-		info.AddValue ("profileNumber", profileNumber);
 		info.AddValue ("currentNode", currentNode);
 	}
 }

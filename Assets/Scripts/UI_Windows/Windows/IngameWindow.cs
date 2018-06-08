@@ -6,10 +6,12 @@ public class IngameWindow : GenericWindow {
 
 	public LevelManager levelManager;
 	public WindowBackgroundStruct worldWindow;
+	public SaveManager saveManager;
 
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Debug.Log ("Open options menu");
+			saveManager.Save ();
 			this.OnNextWindow ();
 			levelManager.TogglePause (true);
 		}

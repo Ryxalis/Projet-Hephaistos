@@ -15,14 +15,14 @@ public class SaveManager : MonoBehaviour {
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.G))
 			Save ();
-		if(Input.GetKeyDown(KeyCode.H))
-			Load();
 	}
 
 	public void Load(){
-		data = new SaveData ();
-		LoadFromFile ();
-		SetData ();
+		if (File.Exists ("Save_" + profileWindow.profileNumber.ToString () + ".game")) {
+			data = new SaveData ();
+			LoadFromFile ();
+			SetData ();
+		}
 	}
 
 	public void Save(){
@@ -32,9 +32,8 @@ public class SaveManager : MonoBehaviour {
 	}
 
 
-	public void CollectData (){
+	void CollectData (){
 		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
-		data.profileNumber = profileWindow.profileNumber;
 		data.nodeStatus = new int[gameNodes.Length];
 		for(int i = 0; i<data.nodeStatus.Length; ++i){
 			data.nodeStatus[i] = (int)gameNodes[i].nodeStatus;
@@ -44,10 +43,9 @@ public class SaveManager : MonoBehaviour {
 		}
 	}
 
-	public void SetData(){
+	void SetData(){
 		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
 		worldManager.currentAbstractNode = gameNodes[data.currentNode];
-		profileWindow.profileNumber = data.profileNumber;
 		for (int i = 0; i < data.nodeStatus.Length; ++i) {
 			gameNodes[i].nodeStatus = (NodeStatus)data.nodeStatus[i];
 			gameNodes [i].Boot ();
@@ -55,21 +53,21 @@ public class SaveManager : MonoBehaviour {
 		worldManager.Boot ();
 	}
 
-	public void SaveInFile(){
-		Stream stream = File.Open ("Save.game", FileMode.Create);
+	void SaveInFile(){
+		Stream stream = File.Open ("Save_" + profileWindow.profileNumber.ToString() + ".game", FileMode.Create);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder ();
-		Debug.Log ("Writing information");
+		Debug.Log ("Saving...");
 		bformatter.Serialize (stream, data);
 		stream.Close ();
 	}
 
-	public void LoadFromFile(){
-		Stream stream = File.Open("Save.game", FileMode.Open);
-		BinaryFormatter bformatter = new BinaryFormatter();
-		bformatter.Binder = new VersionDeserializationBinder(); 
-		Debug.Log ("Reading Data");
-		data = (SaveData)bformatter.Deserialize(stream);
-		stream.Close();
+	void LoadFromFile(){
+		Stream stream = File.Open ("Save_" + profileWindow.profileNumber.ToString () + ".game", FileMode.Open);
+		BinaryFormatter bformatter = new BinaryFormatter ();
+		bformatter.Binder = new VersionDeserializationBinder (); 
+		Debug.Log ("Loading...");
+		data = (SaveData)bformatter.Deserialize (stream);
+		stream.Close ();
 	}
 }
