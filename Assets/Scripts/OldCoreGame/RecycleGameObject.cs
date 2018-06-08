@@ -19,8 +19,6 @@ public class RecycleGameObject : MonoBehaviour {
 				recycleComponent.Add (component as IRecycle);
 			}
 		}
-
-		//Debug.Log (name + " found " + recycleComponent.Count + " components ");
 	}
 
 	public void Restart(){

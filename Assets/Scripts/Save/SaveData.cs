@@ -5,26 +5,22 @@ using System.Runtime.Serialization;
 
 [System.Serializable]
 public class SaveData : ISerializable {
-	public int[] nodeStatus = {0, 1};
-	public int currentNode = 42;
-	public int profileNumber = -1;
+	public int[] nodeStatus;
+	public int currentNode;
+	public int profileNumber;
 
 	public SaveData(){
 	}
 
 	public SaveData(SerializationInfo info, StreamingContext ctxt){
-		for (int i = 0; i < nodeStatus.Length; ++i) {
-			nodeStatus[i] = (int)info.GetValue ("nodeStatus_" + i.ToString(), typeof(int));
-		}
-		currentNode = (int)info.GetValue ("currentNode", typeof(int));
+		nodeStatus    = (int[])info.GetValue ("nodeStatus", typeof(int[]));
 		profileNumber = (int)info.GetValue ("profileNumber", typeof(int));
+		currentNode   = (int)info.GetValue ("currentNode", typeof(int));
 	}
 
 	public void GetObjectData(SerializationInfo info, StreamingContext ctxt){
-		for (int i = 0; i < nodeStatus.Length; ++i) {
-			info.AddValue ("nodeStatus_" + i.ToString(), nodeStatus[i]);
-		}
-		info.AddValue ("currentNode", currentNode);
+		info.AddValue ("nodeStatus", nodeStatus);
 		info.AddValue ("profileNumber", profileNumber);
+		info.AddValue ("currentNode", currentNode);
 	}
 }

@@ -28,6 +28,10 @@ public class GameNode : AbstractGameNode {
 	void Awake(){
 		worldWindow = GetComponentInParent<WorldWindow> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
+		Boot ();
+	}
+
+	public override void Boot(){
 		if (nodeStatus == NodeStatus.Locked) {
 			spriteRenderer.sprite = lockedSprite;
 		} else if (nodeStatus == NodeStatus.Unlocked) {

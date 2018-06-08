@@ -19,8 +19,12 @@ public class WorldManager : MonoBehaviour {
 	public GenericWindow WorldWindow;
 	public GenericWindow DialogueWindow;
 
-	void Awake() {
+	void Awake(){
 		gameStatus = GameStatus.Menu;
+		Boot ();
+	}
+
+	public void Boot() {
 		worldPlayer.transform.position = currentAbstractNode.transform.position;
 	}
 

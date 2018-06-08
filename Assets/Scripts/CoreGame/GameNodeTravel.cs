@@ -8,6 +8,11 @@ public class GameNodeTravel : AbstractGameNode {
 	public AbstractGameNode nextNode2;
 	public AbstractGameNode nextNode;
 
+	public override void Boot ()
+	{
+		
+	}
+
 	public override void KillNode(){
 		if (nodeStatus == NodeStatus.Locked) {
 			nodeStatus = NodeStatus.Dead;

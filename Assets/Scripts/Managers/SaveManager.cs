@@ -7,31 +7,55 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveManager : MonoBehaviour {
 
 	public GameObject worldMap;
+	public ProfileWindow profileWindow;
+	public WorldManager worldManager;
 
-	private int profileNumber = -1;
-	private int currentNode = -1;
-	private int[] nodeStatus;
+	private SaveData data;
 
-	public void SetProfilNumber(int newProfilNumber){
-		profileNumber = newProfilNumber;
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.G))
+			Save ();
+		if(Input.GetKeyDown(KeyCode.H))
+			Load();
 	}
 
-	void Start(){
-		//Save ();
-		Load();
+	public void Load(){
+		data = new SaveData ();
+		LoadFromFile ();
+		SetData ();
 	}
-
-	/*public void Save(){
-		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
-		nodeStatus = new int[gameNodes.Length];
-		for(int i = 0; i<gameNodes.Length; ++i){
-			nodeStatus[i] = (int)gameNodes[i].nodeStatus;
-		}
-	}*/
-
 
 	public void Save(){
-		SaveData data = new SaveData ();
+		data = new SaveData ();
+		CollectData ();
+		SaveInFile ();
+	}
+
+
+	public void CollectData (){
+		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
+		data.profileNumber = profileWindow.profileNumber;
+		data.nodeStatus = new int[gameNodes.Length];
+		for(int i = 0; i<data.nodeStatus.Length; ++i){
+			data.nodeStatus[i] = (int)gameNodes[i].nodeStatus;
+			if (gameNodes[i] == worldManager.currentAbstractNode) {
+				data.currentNode = i;
+			}
+		}
+	}
+
+	public void SetData(){
+		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
+		worldManager.currentAbstractNode = gameNodes[data.currentNode];
+		profileWindow.profileNumber = data.profileNumber;
+		for (int i = 0; i < data.nodeStatus.Length; ++i) {
+			gameNodes[i].nodeStatus = (NodeStatus)data.nodeStatus[i];
+			gameNodes [i].Boot ();
+		}
+		worldManager.Boot ();
+	}
+
+	public void SaveInFile(){
 		Stream stream = File.Open ("Save.game", FileMode.Create);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder ();
@@ -40,19 +64,12 @@ public class SaveManager : MonoBehaviour {
 		stream.Close ();
 	}
 
-	public void Load(){
-		SaveData data = new SaveData ();
+	public void LoadFromFile(){
 		Stream stream = File.Open("Save.game", FileMode.Open);
 		BinaryFormatter bformatter = new BinaryFormatter();
 		bformatter.Binder = new VersionDeserializationBinder(); 
 		Debug.Log ("Reading Data");
 		data = (SaveData)bformatter.Deserialize(stream);
 		stream.Close();
-
-		currentNode = data.currentNode;
-		profileNumber = data.profileNumber;
-		for (int i = 0; i < data.nodeStatus.Length; ++i) {
-			nodeStatus [i] = data.nodeStatus [i];
-		}
 	}
 }
