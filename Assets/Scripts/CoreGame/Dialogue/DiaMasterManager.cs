@@ -23,7 +23,6 @@ public class DiaMasterManager : MonoBehaviour {
 	public static string currentDialogue = "none";
 
 	void Update(){
-
 	}
 
 	public void StartDialogue(string sceneName){
@@ -32,6 +31,7 @@ public class DiaMasterManager : MonoBehaviour {
 		panelManager = GetComponent<DiaPanelManager> ();
 		animationManager = GetComponent<DiaAnimationManager> ();
 
+		_managerList = new List<DiaManager> ();
 		_managerList.Add (atlasManager);
 		_managerList.Add (animationManager);
 		_managerList.Add (panelManager);

@@ -1,0 +1,3 @@
+ - modifier le volume lorsqu'il y a des dialogues
+ - suivre le joueur avec la caméra, mais faire attention aux bords de la carte
+ - considérer l'objet "game" conne externe au canvas, et l'activer/desactiver quand il y en a besoin

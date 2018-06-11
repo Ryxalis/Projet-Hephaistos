@@ -29,6 +29,7 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 		rightPanel.dialogue.text = "";
 		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneName);
 		UpdatePanelState();
+		print (stepIndex);
 	}
 
 	void Update(){
@@ -36,7 +37,7 @@ public class DiaPanelManager : MonoBehaviour, DiaManager {
 	}
 
 	void UpdatePanelState(){
-		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting) {
+		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting && !masterManager.animationManager.isAnimating) {
 			
 			if (stepIndex < currentEvent.dialogues.Count) {
 				UpdatePanels ();

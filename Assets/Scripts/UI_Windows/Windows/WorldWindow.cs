@@ -9,6 +9,25 @@ public class WorldWindow : GenericWindow {
 	public WindowBackgroundStruct dialogueWindow;
 	public WindowBackgroundStruct levelWindow;
 
+	public WorldGameObject worldGameObject;
+
+	protected override void Awake ()
+	{
+		base.Close ();
+	}
+
+	public override void Open ()
+	{
+		worldGameObject.Boot ();
+		base.Open ();
+	}
+
+	public override void Close ()
+	{
+		worldGameObject.Close ();
+		base.Close ();
+	}
+
 	public void StartDialogue(string dialogueName){
 		if (dialogueWindow.activateBackground) {
 			WindowsManager.backgrounds.Add ((int)thisWindow - 1);

@@ -19,9 +19,9 @@ public class WindowsManager : MonoBehaviour {
 
 		for (var i = 0; i < total; ++i) {
 			var window = GetWindow (i);
-			if (i == value) {
+			if (i == value && !window.gameObject.activeSelf) {
 				window.Open ();
-			} else if (!backgrounds.Contains (i)) {
+			} else if (!backgrounds.Contains (i) && window.gameObject.activeSelf) {
 				window.Close ();
 			}
 		}

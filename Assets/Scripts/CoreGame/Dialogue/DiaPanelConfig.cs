@@ -47,11 +47,12 @@ public class DiaPanelConfig : MonoBehaviour {
 	}
 
 	IEnumerator AnimateText(string dialogueText) {
-		isWriting = true;
+		
 		while (masterManager.animationManager.isAnimating == true) {
 			yield return null;
 		}
 
+		isWriting = true;
 		dialogue.text = "";
 		foreach (char letter in dialogueText) {
 			dialogue.text += letter;
