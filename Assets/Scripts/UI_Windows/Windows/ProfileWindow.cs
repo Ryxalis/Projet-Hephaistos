@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class ProfileWindow : GenericWindow {
 
-	public WindowBackgroundStruct worldWindow;
-	public GameObject worldLoop;
-	public SaveManager saveManager;
+	[SerializeField] private GameObject worldLoop;
+	[SerializeField] private SaveManager saveManager;
+	[SerializeField] private int profileNumber = -1;
+	[Header("Windows")]
+	[SerializeField] private WindowBackgroundStruct worldWindow;
+	[SerializeField] private WindowBackgroundStruct startWindow;
 
-	public int profileNumber = -1;
-	
+	public int ProfileNumber { get { return profileNumber; } }
+
 	public void OpenWorldWindow(int number){
-		if (nextWindow.activateBackground) {
-			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
-		}
-		worldLoop.SetActive (true);
-		wManager.Open ((int)worldWindow.window - 1);
+		OnNextWindow (worldWindow);
 
+		worldLoop.SetActive (true);
 		profileNumber = number;
 		saveManager.Load ();
+	}
+
+	public void OnPreviousWindow(){
+		OnNextWindow (startWindow);
 	}
 
 }

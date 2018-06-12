@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Window for some optitons.																			*
+//* Deals with a particular type of option, loads and save.												*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,20 +12,23 @@ using UnityEngine.UI;
 public class AnyOptionsWindow : GenericWindow {
 
 	public OptionVariable[] options;
+	[Header("Window")]
+	[SerializeField] private WindowBackgroundStruct optionsWindow;
 
-	public override void OnNextWindow ()
+	public void OnPreviousWindow ()
 	{
 		SaveOptions ();
-		base.OnNextWindow ();
+		base.OnNextWindow (optionsWindow);
 	}
 
-	public override void OnPreviousWindow ()
+	public override void Open ()
 	{
-		SaveOptions ();
-		base.OnPreviousWindow ();
+		LoadOptions ();
+		base.Open ();
 	}
 
-	private void SaveOptions(){
+	private void SaveOptions()		// this saves as playerPrefs
+	{
 		foreach (OptionVariable op in options) {
 			if (op.UIObject.GetComponentInChildren<Slider> ()) {
 				PlayerPrefs.SetInt (op.name, (int)op.UIObject.GetComponentInChildren<Slider> ().value);
@@ -33,12 +41,9 @@ public class AnyOptionsWindow : GenericWindow {
 				PlayerPrefs.SetString(op.name, butt.gameObject.GetComponentInChildren<Text>().text);
 			}
 		}
-
-		base.OnNextWindow ();
 	}
 
-	public override void Open ()
-	{
+	private void LoadOptions(){
 		foreach (OptionVariable op in options) {
 			if (op.UIObject.GetComponentInChildren<Slider> ()) {
 				op.UIObject.GetComponentInChildren<Slider> ().value = PlayerPrefs.GetInt (op.name);
@@ -51,7 +56,5 @@ public class AnyOptionsWindow : GenericWindow {
 				butt.gameObject.GetComponentInChildren<Text> ().text = PlayerPrefs.GetString(op.name);
 			}
 		}
-
-		base.Open ();
 	}
 }

@@ -8,37 +8,31 @@ public class WindowsManager : MonoBehaviour {
 	public int currentWindowID;
 	public int defaultWindowID;
 
-	public static List<int> backgrounds = new List<int>();
-
 	public GenericWindow GetWindow(int value){
 		return windows [value];
 	}
 
-	private void ToggleVisibility(int value){
-		var total = windows.Length;
+	void Start(){
+		Open (defaultWindowID);
+	}
 
+	public void Open(int value){
+		if(value < 0 || value >= windows.Length){
+			return;
+		}
+		var total = windows.Length;
 		for (var i = 0; i < total; ++i) {
 			var window = GetWindow (i);
 			if (i == value && !window.gameObject.activeSelf) {
+				window.gameObject.SetActive (true);
 				window.Open ();
-			} else if (!backgrounds.Contains (i) && window.gameObject.activeSelf) {
+			} else if (i == value && window.gameObject.activeSelf) {
+				window.OnFocus ();
+			} else if (!window.IsBackground && window.gameObject.activeSelf) {
 				window.Close ();
+				window.gameObject.SetActive (false);
 			}
 		}
 	}
 
-	public GenericWindow Open(int value){
-		if(value < 0 || value >= windows.Length){
-			return null;
-		}
-		currentWindowID = value;
-		ToggleVisibility(currentWindowID);
-
-		return GetWindow (currentWindowID);
-	}
-
-	void Start(){
-		GenericWindow.wManager = this;
-		Open (defaultWindowID);
-	}
 }

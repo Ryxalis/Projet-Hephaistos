@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class GameLevel : MonoBehaviour {
 
+	[SerializeField] private EndingCollider[] endingCollider;
 	private GameObject level;
-	public bool hasBeenCompleted = false;
-	public bool isActive = false;
+	private bool isFinished = false;
+	private string endDirection = "";
+	//public bool hasBeenCompleted = false;
 
-	public EndingCollider[] endingCollider;
-
-	public string endDirection = "";
+	public bool IsFinished { get { return isFinished; } }
+	public string EndDirection { get { return endDirection; } }
 
 	void Awake() {
 		level = GetComponentInChildren<Transform> ().gameObject;
 	}
 
-	public void StartLevel(){
-		level.SetActive (true);
-		isActive = true;
+	public void Boot(){
+		isFinished = false;
+		foreach (EndingCollider end in endingCollider) {
+			end.Boot ();
+		}
 	}
 
 	void Update() {
@@ -27,15 +30,10 @@ public class GameLevel : MonoBehaviour {
 
 	public void CheckEnd(){
 		foreach (EndingCollider end in endingCollider) {
-			if (end.endingDirection != "" && end.isTriggered) {
-				endDirection = end.endingDirection;
-				Finish ();
+			if (end.IsTriggered) {
+				endDirection = end.EndingDirection;
+				isFinished = true;
 			}
 		}
-	}
-
-	public void Finish(){
-		level.SetActive (false);
-		isActive = false;
 	}
 }

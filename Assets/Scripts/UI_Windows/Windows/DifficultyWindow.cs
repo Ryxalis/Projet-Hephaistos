@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Difficulty Window.																						*
+//* Not used yet.																*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,9 +39,9 @@ public class DifficultyWindow : GenericWindow {
 		}
 	}
 
-	public void OnSelect(){
+	public void OnSelect(WindowBackgroundStruct nextWindow){
 		PlayerPrefs.SetInt (varToRecord, difficulty);
-		OnNextWindow ();
+		OnNextWindow (nextWindow);
 	}
 
 	void Start () {
@@ -45,7 +50,7 @@ public class DifficultyWindow : GenericWindow {
 
 	void Update () {
 		if (Input.GetButtonDown ("Submit")) {
-			OnSelect ();
+			//OnSelect ();
 		}
 
 		++ currentDelay;

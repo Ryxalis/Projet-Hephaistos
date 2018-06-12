@@ -119,7 +119,6 @@
      <Compile Include="Assets\Scripts\UI_Windows\Windows\AnyOptionsWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\DifficultyWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GameOverWindow.cs" />
-     <Compile Include="Assets\Scripts\UI_Windows\Windows\GenericOptionWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GenericWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\IngameWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\KeyboardWindow.cs" />

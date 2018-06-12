@@ -18,7 +18,7 @@ public class SaveManager : MonoBehaviour {
 	}
 
 	public void Load(){
-		if (File.Exists ("Save_" + profileWindow.profileNumber.ToString () + ".game")) {
+		if (File.Exists ("Save_" + profileWindow.ProfileNumber.ToString () + ".game")) {
 			data = new SaveData ();
 			LoadFromFile ();
 			SetData ();
@@ -54,7 +54,7 @@ public class SaveManager : MonoBehaviour {
 	}
 
 	void SaveInFile(){
-		Stream stream = File.Open ("Save_" + profileWindow.profileNumber.ToString() + ".game", FileMode.Create);
+		Stream stream = File.Open ("Save_" + profileWindow.ProfileNumber.ToString() + ".game", FileMode.Create);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder ();
 		Debug.Log ("Saving...");
@@ -63,7 +63,7 @@ public class SaveManager : MonoBehaviour {
 	}
 
 	void LoadFromFile(){
-		Stream stream = File.Open ("Save_" + profileWindow.profileNumber.ToString () + ".game", FileMode.Open);
+		Stream stream = File.Open ("Save_" + profileWindow.ProfileNumber.ToString () + ".game", FileMode.Open);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder (); 
 		Debug.Log ("Loading...");

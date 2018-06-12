@@ -21,7 +21,7 @@ public class GameNode : AbstractGameNode {
 	public string[] additionalDialogues;
 	public int currentAdditionalDialogueID = 0;
 
-	public LevelManager levelManager;
+	//public LevelManager levelManager;
 	private SpriteRenderer spriteRenderer;
 	public WorldWindow worldWindow;
 
@@ -61,9 +61,7 @@ public class GameNode : AbstractGameNode {
 	}
 
 	public void LevelSequence(){
-		if (levelNumber >= 0) {
-			worldWindow.StartLevel (levelNumber);
-		}
+		worldWindow.StartLevel (levelNumber);
 	}
 
 	public void ForkSequence(AbstractGameNode nextGameNode){

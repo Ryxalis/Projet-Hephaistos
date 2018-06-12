@@ -55,7 +55,7 @@ public class SettingsManager : MonoBehaviour {
 
 	public void UpdateSettings(){
 		Resolution res = myResolutions[PlayerPrefs.GetInt("ScreenResolution")];
-		PixelPerfectCamera.nativeResolution = new Vector2 (res.width, res.height);
+		//PixelPerfectCamera.nativeResolution = new Vector2 (res.width, res.height);
 		bool fullscreen = PlayerPrefs.GetInt ("Fullscreen") == 1 ? true : false;
 		Screen.SetResolution (res.width, res.height, fullscreen);
 

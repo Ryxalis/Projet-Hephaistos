@@ -3,36 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
+	
+	private bool isDoingLevel;
+	public bool IsDoingLevel { get { return isDoingLevel; } }
+	public string GetEndDirection { get { return currentLevel.EndDirection; } }
 
-	static public bool isDoingLevel;
+	private GameLevel[] levels;
+	private GameLevel currentLevel;
+	[Header("Level-related")]
+	[SerializeField] private GameObject inGameObject;
+	[SerializeField] private IngameWindow inGameWindow;
 
-	public GameLevel[] levels;
-	public GameLevel currentLevel;
-	public GameObject player;
-
-	private DiaMasterManager diaMasterManager;
-	private bool isPaused;
-	public bool get_isPaused(){ return isPaused; }
 	private TimeManager timeManager;
+	//private bool isPaused;
+	//public bool get_isPaused(){ return isPaused; }
 
 	void Awake() {
 		currentLevel = null;
-		levels = GetComponentsInChildren<GameLevel> ();
+		levels = inGameObject.GetComponentsInChildren<GameLevel> ();
 		timeManager = GameObject.Find ("TimeManager").GetComponent<TimeManager> ();	
-		isPaused = false;
+		//isPaused = false;
 	}
 
 	void Update () {
-		if(!currentLevel.isActive){
-			isDoingLevel= false;
+		if(isDoingLevel && currentLevel.IsFinished){
+			isDoingLevel = false;
+			currentLevel.gameObject.SetActive (false);
 			currentLevel = null;
+			inGameWindow.BackToWorld ();
 		}
 	}
 
 	public void StartLevel(int level){
 		isDoingLevel = true;
 		currentLevel = levels [level];
-		currentLevel.StartLevel();
+		foreach(GameLevel f_level in levels){
+			f_level.gameObject.SetActive(false);
+		}
+		currentLevel.gameObject.SetActive(true);
+		currentLevel.Boot();
 	}
 
 	public void TogglePause(bool toggle){

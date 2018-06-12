@@ -1,16 +1,24 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Option Window.																						*
+//* Link between Start window andd all different options.												*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class OptionsWindow : GenericWindow {
-	
-	public WindowBackgroundStruct[] SubOptionsWindows;
+
+	[Header("Windows")]
+	[SerializeField] private WindowBackgroundStruct[] SubOptionsWindows;
+	[SerializeField] private WindowBackgroundStruct startWindow;
 
 	public void OpenOptionsWindows(int i)
 	{
-		if (SubOptionsWindows[i].activateBackground) {
-			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
-		}
-		wManager.Open ((int)SubOptionsWindows[i].window - 1);
+		OnNextWindow (SubOptionsWindows [i]);
+	}
+
+	public void OnPreviousWindow(){
+		OnNextWindow (startWindow);
 	}
 }

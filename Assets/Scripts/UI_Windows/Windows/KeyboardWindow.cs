@@ -51,14 +51,14 @@ public class KeyboardWindow : GenericWindow {
 		}
 	}
 
-	public void OnRetPressed(){
+	/*public void OnRetPressed(){
 		PlayerPrefs.SetString (varToRecord, _text);
 		OnNextWindow ();
 	}
 
 	public void OnCancelPressed(){
 		OnPreviousWindow ();
-	}
+	}*/
 
 	public void OnCapsPressed(){
 		keyboard.SetActive (!keyboard.activeSelf);
@@ -71,10 +71,10 @@ public class KeyboardWindow : GenericWindow {
 		}
 	}
 
-	protected override void Display (bool value)
+	/*protected override void Display (bool value)
 	{
 		keyboard.SetActive (true);
 		keyboardCaps.SetActive (false);
 		base.Display (value);
-	}
+	}*/
 }

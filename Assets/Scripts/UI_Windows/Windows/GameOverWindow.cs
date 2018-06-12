@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* GameOver and scores Window.																						*
+//* Not used yet.																*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +30,7 @@ public class GameOverWindow : GenericWindow {
 		base.Open ();
 	}
 
-	public void OnNext(){
-		OnNextWindow ();
+	public void OnNext(WindowBackgroundStruct nextWindow){
+		OnNextWindow (nextWindow);
 	}
 }

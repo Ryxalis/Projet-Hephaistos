@@ -18,10 +18,10 @@ public class WorldCamera : MonoBehaviour {
 		if (worldManager.gameStatus == GameStatus.WorldMap){
 			Vector3 newPos = new Vector3 (worldPlayer.transform.position.x, worldPlayer.transform.position.y, m_camera.transform.position.z);
 
-			if (Mathf.Abs (worldPlayer.transform.position.y) + m_camera.scaledPixelHeight / PixelPerfectCamera.pixelToUnits / 2 > worldGO.currentMap.GetComponent<SpriteRenderer> ().size.y * worldGO.currentMap.transform.lossyScale.y * 100 / 2) {
+			/*if (Mathf.Abs (worldPlayer.transform.position.y) + m_camera.scaledPixelHeight / PixelPerfectCamera.pixelToUnits / 2 > worldGO.currentMap.GetComponent<SpriteRenderer> ().size.y * worldGO.currentMap.transform.lossyScale.y * 100 / 2) {
 				print ("OUT");
 				newPos.y = m_camera.transform.position.y;
-			}
+			}*/
 
 			m_camera.transform.position = newPos;
 

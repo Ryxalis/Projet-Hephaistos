@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EndingCollider : MonoBehaviour {
 
-	public bool isTriggered;
-	public string endingDirection = "";
+	[SerializeField] private string endingDirection = "";
+	private bool isTriggered;
 
-	void InitTrigger(){
+	public bool IsTriggered { get { return isTriggered; } }
+	public string EndingDirection { get { return endingDirection; } }
+
+	public void Boot(){
 		isTriggered = false;
 	}
 

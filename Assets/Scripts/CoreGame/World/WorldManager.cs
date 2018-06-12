@@ -122,11 +122,11 @@ public class WorldManager : MonoBehaviour {
 
 			//Do the level if there is one
 			string end = "";
-			if (currentGameNode.levelNumber != -1) {
+			if (currentGameNode.levelNumber > -1) {
 				currentGameNode.LevelSequence ();
-				while (LevelManager.isDoingLevel) {
-					if (levelManager.currentLevel.endDirection != "") {
-						end = levelManager.currentLevel.endDirection;
+				while (levelManager.IsDoingLevel) {
+					if (levelManager.GetEndDirection != "") {
+						end = levelManager.GetEndDirection;
 					}
 					yield return null;
 				}

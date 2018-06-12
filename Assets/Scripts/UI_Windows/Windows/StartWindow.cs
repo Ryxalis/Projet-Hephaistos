@@ -1,36 +1,44 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Starting Window.																					*
+//* This is basically the mmain menu.																	*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class StartWindow : GenericWindow {
 
-	public Button continueButton;
-	public WindowBackgroundStruct optionsWindow;
+	[SerializeField] private Button continueButton;
+	[Header("Windows")]
+	[SerializeField] private WindowBackgroundStruct profilWindow;
+	[SerializeField] private WindowBackgroundStruct optionsWindow;
+	[SerializeField] private WindowBackgroundStruct achievementsWindow;
 
 	public override void Open ()
 	{
-		var canContinue = true;
+		/*var canContinue = true;
 
 		continueButton.gameObject.SetActive (canContinue);
 
 		if (continueButton.gameObject.activeSelf) {
 			firstSelected = continueButton.gameObject;
 		}
-
+		*/
 		base.Open();
 	}
 
 	public void ProfilWindow(){
-		OnNextWindow ();
+		OnNextWindow (profilWindow);
 	}
 
 	public void Options(){
-		if (optionsWindow.activateBackground) {
-			WindowsManager.backgrounds.Add ((int)thisWindow - 1);
-		}
-		wManager.Open ((int)optionsWindow.window - 1);
+		OnNextWindow (optionsWindow);
+	}
+
+	public void AchievementsWindow(){
+		OnNextWindow (achievementsWindow);
 	}
 
 	public void Quit(){
