@@ -32,10 +32,7 @@ public class WorldWindow : GenericWindow {
 
 	public void StartDialogue(string dialogueName){
 		OnNextWindow (dialogueWindow);
-
-		if (DiaMasterManager.currentDialogue == "none") {
-			diaMasterManager.StartDialogue (dialogueName);
-		}
+		diaMasterManager.StartDialogue (dialogueName);
 	}
 
 	public void StartLevel(int levelNumber){

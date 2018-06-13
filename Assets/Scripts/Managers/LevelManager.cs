@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Manager that deals with all inGame things.															*
+//* Tells when a level is finished, how to begin and how to pause.										*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DialogueWindow.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Duck.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\FaceDirection.cs" />
@@ -117,6 +116,7 @@
      <Compile Include="Assets\Scripts\UI_Windows\WindowAnimatedTexture.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\WindowBackgroundStruct.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\AnyOptionsWindow.cs" />
+     <Compile Include="Assets\Scripts\UI_Windows\Windows\DialogueWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\DifficultyWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GameOverWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\GenericWindow.cs" />

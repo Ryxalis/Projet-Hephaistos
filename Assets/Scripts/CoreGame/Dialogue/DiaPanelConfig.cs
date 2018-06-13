@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class DiaPanelConfig : MonoBehaviour {
 
-	public DiaMasterManager masterManager;
+	[SerializeField] private DiaMasterManager masterManager;
 
 	public bool isTalking;
 	public static bool isWriting = false;
@@ -36,7 +36,7 @@ public class DiaPanelConfig : MonoBehaviour {
 
 	public void Configure(DiaDialogue currentDialogue){
 		ToggleCharacterMask ();
-		avatarImage.sprite = masterManager.atlasManager.loadSprite(currentDialogue.atlasImageName);
+		avatarImage.sprite = masterManager.loadSprite(currentDialogue.atlasImageName);
 		characterName.text = currentDialogue.name;
 
 		if (isTalking) {
@@ -47,11 +47,9 @@ public class DiaPanelConfig : MonoBehaviour {
 	}
 
 	IEnumerator AnimateText(string dialogueText) {
-		
-		while (masterManager.animationManager.isAnimating == true) {
+		while (masterManager.IsAnimating == true) {
 			yield return null;
 		}
-
 		isWriting = true;
 		dialogue.text = "";
 		foreach (char letter in dialogueText) {

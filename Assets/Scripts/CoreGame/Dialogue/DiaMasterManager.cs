@@ -13,20 +13,18 @@ using UnityEngine;
 [RequireComponent(typeof(DiaAnimationManager))]
 
 public class DiaMasterManager : MonoBehaviour {
+	
+	[SerializeField] private DialogueWindow dialogueWindow;
 
 	private List<DiaManager> _managerList = new List<DiaManager>();
-
-	public DiaAtlasManager atlasManager { get; private set; }
-	public DiaPanelManager panelManager { get; private set; }
-	public DiaAnimationManager animationManager { get; private set; }
-
-	public static string currentDialogue = "none";
-
-	void Update(){
-	}
+	private DiaAtlasManager atlasManager;// { get; private set; }
+	private DiaPanelManager panelManager;// { get; private set; }
+	private DiaAnimationManager animationManager;// { get; private set; }
+	private string currentDialogue = "none";
+	public string CurrentDialogue { get { return currentDialogue; } }
+	public bool IsAnimating { get { return animationManager.IsAnimating; } }
 
 	public void StartDialogue(string sceneName){
-
 		atlasManager = GetComponent<DiaAtlasManager> ();
 		panelManager = GetComponent<DiaPanelManager> ();
 		animationManager = GetComponent<DiaAnimationManager> ();
@@ -38,12 +36,16 @@ public class DiaMasterManager : MonoBehaviour {
 
 		StartCoroutine (BootAllManagers (sceneName));
 
+		if (currentDialogue != "none") {
+			print ("ERROR");
+		}
 		currentDialogue = sceneName;
 	}
 
 
 	public void EndDialogue(){
 		currentDialogue = "none";
+		dialogueWindow.BackToWorld ();
 	}
 
 	private IEnumerator BootAllManagers(string sceneName){
@@ -51,5 +53,13 @@ public class DiaMasterManager : MonoBehaviour {
 			manager.BootSequence (sceneName);
 		}
 		yield return null;
+	}
+
+	public Sprite loadSprite(string name){
+		return atlasManager.loadSprite(name);
+	}
+
+	public void Animate(string side, string moment){
+		StartCoroutine(animationManager.DiaAnimation (side, moment));
 	}
 }

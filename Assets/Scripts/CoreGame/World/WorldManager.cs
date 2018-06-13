@@ -12,6 +12,7 @@ public class WorldManager : MonoBehaviour {
 
 	public GameStatus gameStatus;
 	public LevelManager levelManager;
+	public DiaMasterManager dialogueManager;
 	public AbstractGameNode currentAbstractNode;
 	public WorldPlayer worldPlayer;
 
@@ -115,7 +116,7 @@ public class WorldManager : MonoBehaviour {
 			//Do the startDialogue if there is one
 			if (currentGameNode.dialogueStartLevelName != "") {
 				currentGameNode.DialogueStartSequence ();
-				while (DiaMasterManager.currentDialogue != "none") {
+				while (dialogueManager.CurrentDialogue != "none") {
 					yield return null;
 				}
 			}
@@ -135,7 +136,7 @@ public class WorldManager : MonoBehaviour {
 			//Do the endDialogue if there is one
 			if (currentGameNode.dialogueEndLevelName != "") {
 				currentGameNode.DialogueEndSequence ();
-				while (DiaMasterManager.currentDialogue != "none") {
+				while (dialogueManager.CurrentDialogue != "none") {
 					yield return null;
 				}
 			}
@@ -150,7 +151,7 @@ public class WorldManager : MonoBehaviour {
 		else if (currentGameNode.nodeStatus == NodeStatus.Unlocked) {
 			if (currentGameNode.additionalDialogues.Length > 0) {
 				currentGameNode.DialogueAdditionalSequence();
-				while (DiaMasterManager.currentDialogue != "none") {
+				while (dialogueManager.CurrentDialogue != "none") {
 					yield return null;
 				}
 			}

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Basic class for Dialogue Managers.																	*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +10,9 @@ public enum DiaManagerState {
 	Offline, Initializing, Completed
 }
 
-public interface DiaManager {
-	DiaManagerState currentState { get; }
+public class DiaManager : MonoBehaviour {
+	protected DiaManagerState currentState;
+	public DiaManagerState CurrentState { get { return currentState; } }
 
-	void BootSequence(string sceneName);
+	public virtual void BootSequence(string sceneName) {}
 }

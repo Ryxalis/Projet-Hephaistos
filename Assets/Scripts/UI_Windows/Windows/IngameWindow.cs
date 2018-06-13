@@ -15,15 +15,6 @@ public class IngameWindow : GenericWindow {
 	[Header("Window")]
 	[SerializeField] private WindowBackgroundStruct worldWindow;
 
-	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Debug.Log ("Open options menu");
-			saveManager.Save ();
-			this.OnNextWindow (worldWindow);
-			levelManager.TogglePause (true);
-		}
-	}
-
 	public void BackToWorld(){
 		OnNextWindow (worldWindow);
 	}

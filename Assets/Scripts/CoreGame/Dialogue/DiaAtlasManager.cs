@@ -9,12 +9,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DiaAtlasManager : MonoBehaviour, DiaManager {
+public class DiaAtlasManager : DiaManager {
 		
-	public static Sprite[] sprites;
-	public DiaManagerState currentState { get; private set; }
+	private Sprite[] sprites;
 
-	public void BootSequence(string sceneName){
+	public override void BootSequence(string sceneName){
 		sprites = Resources.LoadAll<Sprite> ("Artwork/EventAtlas");
 		currentState = DiaManagerState.Completed;
 	}
@@ -25,7 +24,6 @@ public class DiaAtlasManager : MonoBehaviour, DiaManager {
 				return s;
 			}
 		}
-
 		return null;
 	}
 }

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//*******************************************************************************************************
+//* Deals with level resourcces.																		*
+//*																										*
+//*******************************************************************************************************
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
