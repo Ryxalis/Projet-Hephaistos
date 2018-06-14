@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class KeyOption : MonoBehaviour {
 
-	public GameObject MiniKeyPanel;
+	[SerializeField] private GameObject MiniKeyPanel;
 
 	private Toggle selectionToggle;
 	private Button keyButton;

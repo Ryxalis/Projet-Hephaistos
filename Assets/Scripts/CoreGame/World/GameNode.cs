@@ -4,29 +4,33 @@ using UnityEngine;
 
 public class GameNode : AbstractGameNode {
 
-	public Sprite lockedSprite;
-	public Sprite unlockedSprite;
-	public Sprite deadSprite;
-
-
+	private SpriteRenderer spriteRenderer;
+	[SerializeField] private WorldWindow worldWindow;
+	[Header("Sprites")]
+	[SerializeField] private Sprite lockedSprite;
+	[SerializeField] private Sprite unlockedSprite;
+	[SerializeField] private Sprite deadSprite;
+	[Header("Nodes")] 
 	public AbstractGameNode nodeLeft = null;		// null if there is none
 	public AbstractGameNode nodeRight = null;
 	public AbstractGameNode nodeUp = null;
 	public AbstractGameNode nodeDown = null;
+	[Header("Parameters")]
+	[SerializeField] private bool hasFork = false;
+	[SerializeField] private int levelNumber = -1;
+	[SerializeField] private string dialogueStartLevelName = "";
+	[SerializeField] private string dialogueEndLevelName = "";
+	[SerializeField] private string[] additionalDialogues;
+	private int currentAdditionalDialogueID = 0;
 
-	public bool hasFork = false;
-	public int levelNumber = -1;
-	public string dialogueStartLevelName = "";
-	public string dialogueEndLevelName = "";
-	public string[] additionalDialogues;
-	public int currentAdditionalDialogueID = 0;
+	public bool HasFork { get { return hasFork; } }
+	public int LevelNumber{ get { return levelNumber; } }
+	public string DialogueStartLevelName { get { return dialogueStartLevelName; } }
+	public string DialogueEndLevelName   { get { return dialogueEndLevelName;   } }
+	public int AdditionalDialoguesLength { get { return additionalDialogues.Length; } }
 
-	//public LevelManager levelManager;
-	private SpriteRenderer spriteRenderer;
-	public WorldWindow worldWindow;
 
 	void Awake(){
-		//worldWindow = GetComponentInParent<WorldWindow> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		Boot ();
 	}

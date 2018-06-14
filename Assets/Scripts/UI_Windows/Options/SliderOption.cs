@@ -9,7 +9,6 @@ public class SliderOption : MonoBehaviour {
 	private Slider slider;
 
 	void Awake(){
-
 		selectionToggle = GetComponentsInChildren<Toggle> ()[0];
 		slider = GetComponentsInChildren<Slider> ()[0];
 	}

@@ -10,7 +10,7 @@ using UnityEngine;
 public class WorldWindow : GenericWindow {
 
 	[Header("Dialogues")]
-	[SerializeField] private DiaMasterManager diaMasterManager;
+	[SerializeField] private DialogueManager diaMasterManager;
 	[SerializeField] private WindowBackgroundStruct dialogueWindow;
 	[Header("Level")]
 	[SerializeField] private LevelManager levelManager;

@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour {
 
 	void Awake() {
 		currentLevel = null;
+		inGameObject.SetActive (false);
 		levels = inGameObject.GetComponentsInChildren<GameLevel> ();
 		timeManager = GameObject.Find ("TimeManager").GetComponent<TimeManager> ();	
 		//isPaused = false;
@@ -32,15 +33,21 @@ public class LevelManager : MonoBehaviour {
 
 	void Update () {
 		if(isDoingLevel && currentLevel.IsFinished){
-			isDoingLevel = false;
-			currentLevel.gameObject.SetActive (false);
-			currentLevel = null;
-			inGameWindow.BackToWorld ();
+			EndLevel ();
 		}
+	}
+
+	void EndLevel(){
+		currentLevel.gameObject.SetActive (false);
+		inGameObject.SetActive (false);
+		currentLevel = null;
+		isDoingLevel = false;
+		inGameWindow.BackToWorld ();
 	}
 
 	public void StartLevel(int level){
 		isDoingLevel = true;
+		inGameObject.SetActive (true);
 		currentLevel = levels [level];
 		foreach(GameLevel f_level in levels){
 			f_level.gameObject.SetActive(false);

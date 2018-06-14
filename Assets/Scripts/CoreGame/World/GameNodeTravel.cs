@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GameNodeTravel : AbstractGameNode {
 
-	public AbstractGameNode nextNode1;
-	public AbstractGameNode nextNode2;
-	public AbstractGameNode nextNode;
+	[SerializeField] private AbstractGameNode nextNode1;
+	[SerializeField] private AbstractGameNode nextNode2;
+	[SerializeField] private AbstractGameNode nextNode;
 
-	public override void Boot ()
-	{
+	public AbstractGameNode NextNode { get { return nextNode; } }
+
+	public override void Boot (){
 		
 	}
 
@@ -17,10 +18,10 @@ public class GameNodeTravel : AbstractGameNode {
 		if (nodeStatus == NodeStatus.Locked) {
 			nodeStatus = NodeStatus.Dead;
 		}
-		if (nextNode1.nodeStatus == NodeStatus.Locked) {
+		if (nextNode1.NodeStatus == NodeStatus.Locked) {
 			nextNode1.KillNode ();
 		}
-		if (nextNode2.nodeStatus == NodeStatus.Locked) {
+		if (nextNode2.NodeStatus == NodeStatus.Locked) {
 			nextNode2.KillNode();
 		}
 	}
@@ -31,5 +32,14 @@ public class GameNodeTravel : AbstractGameNode {
 
 	void Awake(){
 		isTravelNode = true;
+	}
+
+	public void SetTravellingPath(AbstractGameNode currentAbstractNode){
+		if (currentAbstractNode == nextNode1) {
+			nextNode = nextNode2;
+		}
+		if (currentAbstractNode == nextNode2) {
+			nextNode = nextNode1;
+		}
 	}
 }

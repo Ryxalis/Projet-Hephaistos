@@ -16,19 +16,25 @@ public class WorldCamera : MonoBehaviour {
 
 	void Update () {
 		if (worldManager.gameStatus == GameStatus.WorldMap){
+			//Problem: works only if the map is centered in (0,0)
 			Vector3 newPos = new Vector3 (worldPlayer.transform.position.x, worldPlayer.transform.position.y, m_camera.transform.position.z);
 
-			/*if (Mathf.Abs (worldPlayer.transform.position.y) + m_camera.scaledPixelHeight / PixelPerfectCamera.pixelToUnits / 2 > worldGO.currentMap.GetComponent<SpriteRenderer> ().size.y * worldGO.currentMap.transform.lossyScale.y * 100 / 2) {
-				print ("OUT");
-				newPos.y = m_camera.transform.position.y;
-			}*/
+			SpriteRenderer mapSprite = worldGO.currentMap.GetComponent<SpriteRenderer> ();
+
+			float vertPos = Mathf.Abs (worldPlayer.transform.position.y) + m_camera.scaledPixelHeight / PixelPerfectCamera.pixelToUnits / 2;
+			float vertBound = mapSprite.size.y * worldGO.currentMap.transform.lossyScale.y * 100 / 2;
+
+			float horiPos = Mathf.Abs (worldPlayer.transform.position.x) + m_camera.scaledPixelWidth / PixelPerfectCamera.pixelToUnits / 2;
+			float horiBound = mapSprite.size.x * worldGO.currentMap.transform.lossyScale.x * 100 / 2;
+
+			if (vertPos > vertBound) {
+				newPos.y -= Mathf.Sign(worldPlayer.transform.position.y) * (vertPos-vertBound);
+			}
+			if (horiPos > horiBound) {
+				newPos.x -= Mathf.Sign(worldPlayer.transform.position.x) * (horiPos-horiBound);
+			}
 
 			m_camera.transform.position = newPos;
-
-			//print (worldGO.currentMap.GetComponent<SpriteRenderer> ().size * worldGO.currentMap.transform.lossyScale.x * 100);
-			//print (m_camera.scaledPixelHeight + " " + m_camera.scaledPixelWidth);
-			//print(m_camera.scaledPixelHeight / PixelPerfectCamera.pixelToUnits / 2);
-			//print(m_camera.scaledPixelWidth / PixelPerfectCamera.pixelToUnits);
 		}
 	}
 }

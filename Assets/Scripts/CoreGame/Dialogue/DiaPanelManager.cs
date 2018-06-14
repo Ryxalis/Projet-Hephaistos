@@ -11,9 +11,10 @@ using JSONFactory;
 
 public class DiaPanelManager : DiaManager {
 
-	[SerializeField] private DiaMasterManager masterManager;
-	private DiaPanelConfig rightPanel;
-	private DiaPanelConfig leftPanel;
+	[SerializeField] private DialogueManager masterManager;
+	[Header("Panels")]
+	[SerializeField] private DiaPanelConfig leftPanel;
+	[SerializeField] private DiaPanelConfig rightPanel;
 	private DiaNarrativeEvent currentEvent;
 	private bool leftCharacterActive;
 	private int stepIndex;
@@ -21,33 +22,29 @@ public class DiaPanelManager : DiaManager {
 	public override void BootSequence(string sceneName){
 		leftCharacterActive = true;
 		stepIndex = 0;
-		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<DiaPanelConfig> ();
-		leftPanel  = GameObject.Find ("LeftCharacterPanel" ).GetComponent<DiaPanelConfig> ();
-		leftPanel.dialogue.text = "";
-		rightPanel.dialogue.text = "";
+		leftPanel. Boot ();
+		rightPanel.Boot ();
 		currentEvent = JSONAssembly.RunJSONFactoryForScene (sceneName);
 		UpdatePanelState ();
 	}
 
 	void Update(){
-		UpdatePanelState ();
+		if(masterManager.CurrentDialogue != "none")
+			UpdatePanelState ();
+	}
+
+	public bool IsWriting(){
+		return leftPanel.IsWriting || rightPanel.IsWriting;
 	}
 
 	void UpdatePanelState(){
-		if (Input.GetKeyDown (KeyCode.Space) && !DiaPanelConfig.isWriting && !masterManager.IsAnimating) {
-			
+		if (Input.GetKeyDown (KeyCode.Space) && !IsWriting() && !masterManager.IsAnimating) {
 			if (stepIndex < currentEvent.dialogues.Count) {
 				UpdatePanels ();
-
-				if (currentEvent.dialogues [stepIndex].characterLocation == DiaCharacterLocation.Left) {
-					leftCharacterActive = true;
-				} else {
-					leftCharacterActive = false;
-				}
 				stepIndex++;
 			}
 		}
-		if (masterManager.IsAnimating == false && stepIndex >= currentEvent.dialogues.Count && masterManager.CurrentDialogue != "none") {
+		if (!IsWriting() && !masterManager.IsAnimating && stepIndex >= currentEvent.dialogues.Count) {
 			masterManager.EndDialogue ();
 		}
 	}
@@ -74,14 +71,14 @@ public class DiaPanelManager : DiaManager {
 		}
 
 		if (leftCharacterActive) {
-			leftPanel.isTalking = true;
-			rightPanel.isTalking = false;
+			leftPanel.setIsTalking(true);
+			rightPanel.setIsTalking (false);
 
 			leftPanel.Configure (currentDialogue);
 			rightPanel.ToggleCharacterMask ();
 		} else {
-			leftPanel.isTalking = false;
-			rightPanel.isTalking = true;
+			leftPanel.setIsTalking(false);
+			rightPanel.setIsTalking(true);
 
 			rightPanel.Configure (currentDialogue);
 			leftPanel.ToggleCharacterMask ();

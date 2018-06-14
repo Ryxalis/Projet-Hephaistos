@@ -11,18 +11,29 @@ using UnityEngine.UI;
 
 public class DiaPanelConfig : MonoBehaviour {
 
-	[SerializeField] private DiaMasterManager masterManager;
+	[SerializeField] private DialogueManager masterManager;
 
-	public bool isTalking;
-	public static bool isWriting = false;
+	private bool isTalking;
+	private bool isWriting;
+	public bool IsWriting { get { return isWriting; } }
+	public bool IsTalking { get { return isTalking; } }
 
-	public Image avatarImage;
-	public Image textBG;
-	public Text characterName;
-	public Text dialogue;
-	public float textPrintDelay = 0.05f;
+	public void setIsTalking(bool newValue){ isTalking = newValue; }
+
+	[Header("UI")]
+	[SerializeField] private Image avatarImage;
+	[SerializeField] private Image textBG;
+	[SerializeField] private Text characterName;
+	[SerializeField] private Text dialogue;
+	[SerializeField] private float textPrintDelay = 0.05f;
 
 	private Color maskActiveColor = new Color(100.0f/255.0f, 100.0f/255.0f, 100.0f/255.0f);
+
+	public void Boot(){
+		isWriting = false;
+		isTalking = false;
+		dialogue.text = "";
+	}
 
 	public void ToggleCharacterMask(){
 		if (isTalking) {

@@ -36,7 +36,7 @@ public class SaveManager : MonoBehaviour {
 		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
 		data.nodeStatus = new int[gameNodes.Length];
 		for(int i = 0; i<data.nodeStatus.Length; ++i){
-			data.nodeStatus[i] = (int)gameNodes[i].nodeStatus;
+			data.nodeStatus[i] = (int)gameNodes[i].NodeStatus;
 			if (gameNodes[i] == worldManager.currentAbstractNode) {
 				data.currentNode = i;
 			}
@@ -47,7 +47,7 @@ public class SaveManager : MonoBehaviour {
 		AbstractGameNode[] gameNodes = 	worldMap.GetComponentsInChildren<AbstractGameNode> ();
 		worldManager.currentAbstractNode = gameNodes[data.currentNode];
 		for (int i = 0; i < data.nodeStatus.Length; ++i) {
-			gameNodes[i].nodeStatus = (NodeStatus)data.nodeStatus[i];
+			gameNodes[i].SetNodeStatus((NodeStatus)data.nodeStatus[i]);
 			gameNodes [i].Boot ();
 		}
 		worldManager.Boot ();
