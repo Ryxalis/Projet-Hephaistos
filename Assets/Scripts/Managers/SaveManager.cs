@@ -6,9 +6,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveManager : MonoBehaviour {
 
-	public GameObject worldMap;
-	public ProfileWindow profileWindow;
-	public WorldManager worldManager;
+	[SerializeField] private GameObject worldMap;
+	[SerializeField] private ProfileWindow profileWindow;
+	[SerializeField] private WorldManager worldManager;
 
 	private SaveData data;
 
@@ -57,7 +57,7 @@ public class SaveManager : MonoBehaviour {
 		Stream stream = File.Open ("Save_" + profileWindow.ProfileNumber.ToString() + ".game", FileMode.Create);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder ();
-		Debug.Log ("Saving...");
+		Debug.Log ("Game Saved");
 		bformatter.Serialize (stream, data);
 		stream.Close ();
 	}
@@ -66,7 +66,7 @@ public class SaveManager : MonoBehaviour {
 		Stream stream = File.Open ("Save_" + profileWindow.ProfileNumber.ToString () + ".game", FileMode.Open);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder (); 
-		Debug.Log ("Loading...");
+		Debug.Log ("Game Loaded");
 		data = (SaveData)bformatter.Deserialize (stream);
 		stream.Close ();
 	}

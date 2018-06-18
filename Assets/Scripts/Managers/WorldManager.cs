@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameStatus{Menu, WorldMap, WorldMapDialogue, InGame};
-
 public class WorldManager : MonoBehaviour {
 
+	[SerializeField] private ManagerManager MM;
 	private bool isTravelling = false;
 	private bool isDoingCurrentNode = false;
 	private float speed = 10f;
 
-	public GameStatus gameStatus;
 	public LevelManager levelManager;
 	public DialogueManager dialogueManager;
 	public AbstractGameNode currentAbstractNode;
 	public WorldPlayer worldPlayer;
-
-	public GenericWindow InGameWindow;
-	public GenericWindow WorldWindow;
-	public GenericWindow DialogueWindow;
+	public SaveManager saveManager;
 
 	void Awake(){
-		gameStatus = GameStatus.Menu;
 		Boot ();
 	}
 
@@ -32,7 +26,7 @@ public class WorldManager : MonoBehaviour {
 
 	void Update () {
 		AbstractGameNode nextAbstractNode = currentAbstractNode;
-		if (gameStatus == GameStatus.WorldMap && !isTravelling) {
+		if (MM.M_GameStatus == GameStatus.WorldMap && !isTravelling) {
 			if (!currentAbstractNode.IsTravelNode) {
 				GameNode currentGameNode = (GameNode)currentAbstractNode;
 				if (!isTravelling && !isDoingCurrentNode) {
@@ -78,19 +72,6 @@ public class WorldManager : MonoBehaviour {
 			}
 		}
 
-
-		if (DialogueWindow.isActiveAndEnabled) {
-			gameStatus = GameStatus.WorldMapDialogue;
-		}
-		else if (WorldWindow.isActiveAndEnabled) {
-			gameStatus = GameStatus.WorldMap;
-		}
-		else if (InGameWindow.isActiveAndEnabled) {
-			gameStatus = GameStatus.InGame;
-		}
-		else{
-			gameStatus = GameStatus.Menu;
-		}
 	}
 
 	IEnumerator Travel(AbstractGameNode nextNode){
@@ -152,5 +133,6 @@ public class WorldManager : MonoBehaviour {
 			}
 		}
 		isDoingCurrentNode = false;
+		saveManager.Save ();
 	}
 }

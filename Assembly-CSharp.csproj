@@ -51,6 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CoreGame\Audio\GenericAudioSource.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Audio\LocalAudio.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\Audio\MusicAudioSource.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\AbstractBehavior.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\Duck.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Behaviors\FaceDirection.cs" />
@@ -73,23 +76,18 @@
      <Compile Include="Assets\Scripts\CoreGame\Game\TileBackground.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\CoreGame\Input\Input\KeysBinder.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\Sound\MyAudioSource.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\World\AbstractGameNode.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\World\GameLevel.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\World\GameNode.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\World\GameNodeTravel.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\World\WorldGameObject.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\World\WorldPlayer.cs" />
-     <Compile Include="Assets\Scripts\CoreGame\WorldCamera.cs" />
+     <Compile Include="Assets\Scripts\CoreGame\M_Camera.cs" />
      <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
      <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Managers\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\ManagerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SaveManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TimeManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\WindowsManager.cs" />
      <Compile Include="Assets\Scripts\Managers\WorldManager.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\AnimatedTexture.cs" />
      <Compile Include="Assets\Scripts\OldCoreGame\DestroyOffscreen.cs" />
@@ -130,7 +128,12 @@
      <Compile Include="Assets\Scripts\UI_Windows\Windows\VideoOptionsWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" />
      <Compile Include="Assets\Scripts\UI_Windows\WindowsEnum.cs" />
-     <Compile Include="Assets\Scripts\UI_Windows\WindowsManager.cs" />
+     <Compile Include="Assets\Scripts\World\AbstractGameNode.cs" />
+     <Compile Include="Assets\Scripts\World\GameLevel.cs" />
+     <Compile Include="Assets\Scripts\World\GameNode.cs" />
+     <Compile Include="Assets\Scripts\World\GameNodeTravel.cs" />
+     <Compile Include="Assets\Scripts\World\WorldGameObject.cs" />
+     <Compile Include="Assets\Scripts\World\WorldPlayer.cs" />
      <None Include="Assets\codeandweb.com\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
