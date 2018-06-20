@@ -131,6 +131,8 @@
      <Compile Include="Assets\Scripts\World\AbstractGameNode.cs" />
      <Compile Include="Assets\Scripts\World\GameLevel.cs" />
      <Compile Include="Assets\Scripts\World\GameNode.cs" />
+     <Compile Include="Assets\Scripts\World\GameNodeEnter.cs" />
+     <Compile Include="Assets\Scripts\World\GameNodeExit.cs" />
      <Compile Include="Assets\Scripts\World\GameNodeTravel.cs" />
      <Compile Include="Assets\Scripts\World\WorldGameObject.cs" />
      <Compile Include="Assets\Scripts\World\WorldPlayer.cs" />

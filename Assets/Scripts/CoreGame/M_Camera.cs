@@ -21,13 +21,14 @@ public class M_Camera : MonoBehaviour {
 			//Problem: works only if the map is centered in (0,0)
 			Vector3 newPos = new Vector3 (worldPlayer.transform.position.x, worldPlayer.transform.position.y, m_camera.transform.position.z);
 
-			SpriteRenderer mapSprite = worldGO.currentMap.GetComponent<SpriteRenderer> ();
+			SpriteRenderer mapSprite = worldGO.CurrentMap.GetComponentsInChildren<SpriteRenderer> ()[0];
+			Transform mapTransform = mapSprite.gameObject.transform;
 
 			float vertPos = Mathf.Abs (worldPlayer.transform.position.y) + m_camera.scaledPixelHeight / PixelPerfectCamera.pixelToUnits / 2;
-			float vertBound = mapSprite.size.y * worldGO.currentMap.transform.lossyScale.y * 100 / 2;
+			float vertBound = mapSprite.size.y * mapTransform.lossyScale.y * 100 / 2;
 
 			float horiPos = Mathf.Abs (worldPlayer.transform.position.x) + m_camera.scaledPixelWidth / PixelPerfectCamera.pixelToUnits / 2;
-			float horiBound = mapSprite.size.x * worldGO.currentMap.transform.lossyScale.x * 100 / 2;
+			float horiBound = mapSprite.size.x * mapTransform.lossyScale.x * 100 / 2;
 
 			if (vertPos > vertBound) {
 				newPos.y -= Mathf.Sign (worldPlayer.transform.position.y) * (vertPos - vertBound);

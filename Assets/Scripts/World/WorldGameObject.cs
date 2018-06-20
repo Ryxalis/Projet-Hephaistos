@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class WorldGameObject : MonoBehaviour {
 
-	[SerializeField] private GameObject worldGO;
+	[SerializeField] private GameObject worldGOChild;
 	[SerializeField] private WorldPlayer worldPlayer;
 
-	public GameObject[] maps;
-	public GameObject currentMap;
+	[SerializeField] private GameObject[] maps;
+	[SerializeField] private GameObject currentMap;
+	public GameObject CurrentMap { get { return currentMap; } }
 
-	void Awake(){
-		//worldPlayer = GetComponentInChildren<WorldPlayer> ();
-		//worldGO = GetComponentInChildren<Transform> ().gameObject;
-		//worldGO.SetActive (false);
+	public void Boot(){
+		worldGOChild.SetActive (true);
 		foreach (GameObject map in maps) {
 			map.SetActive (false);
 		}
-		ChangeMap (currentMap, worldPlayer.transform.position);
-	}
-
-	public void Boot(){
-		worldGO.SetActive (true);
+		ChangeMap (	currentMap, worldPlayer.transform.position);
 	}
 
 	public void Close(){
-		worldGO.SetActive (false);
+		worldGOChild.SetActive (false);
 	}
 
 	public void ChangeMap(GameObject newMap, Vector3 newPlayerPosition){

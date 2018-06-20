@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour {
 	public bool IsDoingLevel { get { return isDoingLevel; } }
 	public string GetEndDirection { get { return currentLevel.EndDirection; } }
 
-	private GameLevel[] levels;
+	[SerializeField] private GameLevel[] levels;
 	private GameLevel currentLevel;
 	[Header("Level-related")]
 	[SerializeField] private GameObject inGameObject;
@@ -25,8 +25,6 @@ public class LevelManager : MonoBehaviour {
 
 	void Awake() {
 		currentLevel = null;
-		inGameObject.SetActive (false);
-		levels = inGameObject.GetComponentsInChildren<GameLevel> ();
 		timeManager = GameObject.Find ("TimeManager").GetComponent<TimeManager> ();	
 		//isPaused = false;
 	}
@@ -47,11 +45,11 @@ public class LevelManager : MonoBehaviour {
 
 	public void StartLevel(int level){
 		isDoingLevel = true;
-		inGameObject.SetActive (true);
 		currentLevel = levels [level];
 		foreach(GameLevel f_level in levels){
 			f_level.gameObject.SetActive(false);
 		}
+		inGameObject.SetActive (true);
 		currentLevel.gameObject.SetActive(true);
 		currentLevel.Boot();
 	}

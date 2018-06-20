@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum NodeStatus {Locked, Unlocked, Dead}
+public enum NodeType {Normal, Travel, Exit, Enter}
 
 public class AbstractGameNode : MonoBehaviour {
 
 	protected NodeStatus nodeStatus = NodeStatus.Locked;
-	protected bool isTravelNode = false;
+	protected NodeType nodeType = NodeType.Normal;
 	public NodeStatus NodeStatus { get { return nodeStatus; } }
-	public bool IsTravelNode { get { return isTravelNode; } }
+	public NodeType NodeType { get { return nodeType; } }
 
 	public void SetNodeStatus(NodeStatus newStatus){
 		nodeStatus = newStatus;

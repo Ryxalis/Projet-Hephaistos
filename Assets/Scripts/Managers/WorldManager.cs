@@ -27,7 +27,7 @@ public class WorldManager : MonoBehaviour {
 	void Update () {
 		AbstractGameNode nextAbstractNode = currentAbstractNode;
 		if (MM.M_GameStatus == GameStatus.WorldMap && !isTravelling) {
-			if (!currentAbstractNode.IsTravelNode) {
+			if (currentAbstractNode.NodeType == NodeType.Normal) {
 				GameNode currentGameNode = (GameNode)currentAbstractNode;
 				if (!isTravelling && !isDoingCurrentNode) {
 					if (Input.GetAxis ("Vertical") > 0 && currentGameNode.nodeUp && currentGameNode.nodeUp.NodeStatus != NodeStatus.Dead) {
@@ -55,18 +55,28 @@ public class WorldManager : MonoBehaviour {
 						StartCoroutine (executeLevel (currentGameNode));
 					}
 				}
-			} else {
+			} else if (currentAbstractNode.NodeType == NodeType.Travel) {
 				GameNodeTravel currentTravelNode = (GameNodeTravel)currentAbstractNode;
 				nextAbstractNode = currentTravelNode.NextNode;
 				currentAbstractNode.UnlockNode ();
-			}
+			} else if (currentAbstractNode.NodeType == NodeType.Enter) {
+				GameNodeEnter currentEnterNode = (GameNodeEnter)currentAbstractNode;
+				nextAbstractNode = currentEnterNode.NextNode;
+				currentAbstractNode.UnlockNode ();
+			} else if (currentAbstractNode.NodeType == NodeType.Exit) {
+				//GameNodeEnter currentEnterNode = (GameNodeEnter)currentAbstractNode;
+				//nextAbstractNode = currentEnterNode.NextNode;
+				//currentAbstractNode.UnlockNode ();
+
+				//tricky things to do
+			} 
 		}
 
 
 		if(currentAbstractNode != nextAbstractNode){
 			StartCoroutine( Travel (nextAbstractNode ) );
 
-			if (nextAbstractNode.IsTravelNode) {
+			if (nextAbstractNode.NodeType == NodeType.Travel) {
 				GameNodeTravel nextTravelNode = (GameNodeTravel)nextAbstractNode;
 				nextTravelNode.SetTravellingPath (currentAbstractNode);
 			}

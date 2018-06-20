@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LocalAudio : MonoBehaviour {
-
+	
 	protected float musicMoment;
 	[SerializeField] protected AudioSource audioSource;
 	[SerializeField] protected AudioClip audioClip;
@@ -19,7 +19,6 @@ public class LocalAudio : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		audioSource.clip = audioClip;
-		GAudioSource.FadeIn (fadeTime, musicMoment);
+		GAudioSource.FadeIn (fadeTime, musicMoment, audioClip);
 	}
 }

@@ -31,7 +31,7 @@ public class GameNodeTravel : AbstractGameNode {
 	}
 
 	void Awake(){
-		isTravelNode = true;
+		nodeType = NodeType.Travel;
 	}
 
 	public void SetTravellingPath(AbstractGameNode currentAbstractNode){

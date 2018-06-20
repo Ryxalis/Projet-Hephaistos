@@ -16,15 +16,16 @@ public class GenericAudioSource : MonoBehaviour {
 		StartCoroutine (IFadeOut (fadeTime));
 	}
 
-	public void FadeIn(float fadeTime, float musicMoment){
-		StartCoroutine (IFadeIn (fadeTime, musicMoment));
+	public void FadeIn(float fadeTime, float musicMoment, AudioClip audioClip){
+		StartCoroutine (IFadeIn (fadeTime, musicMoment, audioClip));
 	}
 
-	private IEnumerator IFadeIn(float fadeTime, float musicMoment){
+	private IEnumerator IFadeIn(float fadeTime, float musicMoment, AudioClip audioClip){
 		while (isFading) {
 			yield return null;
 		}
 		isFading = true;
+		audioSource.clip = audioClip;
 		audioSource.Play();
 
 		audioSource.volume = 0.0f;
