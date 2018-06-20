@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour {
 
 	[SerializeField] private ManagerManager MM;
+	[SerializeField] private WorldGameObject worldGameObject;
 	private bool isTravelling = false;
 	private bool isDoingCurrentNode = false;
 	private float speed = 10f;
@@ -64,10 +65,12 @@ public class WorldManager : MonoBehaviour {
 				nextAbstractNode = currentEnterNode.NextNode;
 				currentAbstractNode.UnlockNode ();
 			} else if (currentAbstractNode.NodeType == NodeType.Exit) {
-				//GameNodeEnter currentEnterNode = (GameNodeEnter)currentAbstractNode;
-				//nextAbstractNode = currentEnterNode.NextNode;
-				//currentAbstractNode.UnlockNode ();
+				GameNodeExit currentExitNode = (GameNodeExit)currentAbstractNode;
+				worldGameObject.ChangeMap (currentExitNode.NextMap);
+				worldGameObject.ChangePosition (currentExitNode.NextNode.transform.position);
 
+				currentAbstractNode = currentExitNode.NextNode;
+				nextAbstractNode =    currentExitNode.NextNode;
 				//tricky things to do
 			} 
 		}

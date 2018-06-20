@@ -12,21 +12,25 @@ public class WorldGameObject : MonoBehaviour {
 	public GameObject CurrentMap { get { return currentMap; } }
 
 	public void Boot(){
-		worldGOChild.SetActive (true);
 		foreach (GameObject map in maps) {
 			map.SetActive (false);
 		}
-		ChangeMap (	currentMap, worldPlayer.transform.position);
+		worldGOChild.SetActive (true);
+		ChangeMap (currentMap);
+		ChangePosition (worldPlayer.transform.position);
 	}
 
 	public void Close(){
 		worldGOChild.SetActive (false);
 	}
 
-	public void ChangeMap(GameObject newMap, Vector3 newPlayerPosition){
+	public void ChangeMap(GameObject newMap){
 		currentMap.SetActive (false);
 		newMap.SetActive (true);
 		currentMap = newMap;
+	}
+
+	public void ChangePosition(Vector3 newPlayerPosition){
 		worldPlayer.transform.position = new Vector3 (newPlayerPosition.x, newPlayerPosition.y, worldPlayer.transform.position.z);
 	}
 }
