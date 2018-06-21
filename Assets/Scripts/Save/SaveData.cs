@@ -7,17 +7,29 @@ using System.Runtime.Serialization;
 public class SaveData : ISerializable {
 	public int[] nodeStatus;
 	public int currentNode;
+	public int currentMap;
 
 	public SaveData(){
 	}
 
+	public void SaveMapData(SerializationInfo info, StreamingContext ctxt){
+		nodeStatus  = (int[])info.GetValue ("nodeStatus",  typeof(int[]));
+	}
+
+	public void GetMapData(SerializationInfo info, StreamingContext ctxt){
+		info.AddValue ("nodeStatus",  nodeStatus);
+	}
+
+
 	public SaveData(SerializationInfo info, StreamingContext ctxt){
-		nodeStatus    = (int[])info.GetValue ("nodeStatus", typeof(int[]));
-		currentNode   = (int)info.GetValue ("currentNode", typeof(int));
+		nodeStatus  = (int[])info.GetValue ("nodeStatus",  typeof(int[]));
+		currentMap  = (int)info.GetValue   ("currentMap",  typeof(int));
+		currentNode = (int)info.GetValue   ("currentNode", typeof(int));
 	}
 
 	public void GetObjectData(SerializationInfo info, StreamingContext ctxt){
-		info.AddValue ("nodeStatus", nodeStatus);
+		info.AddValue ("nodeStatus",  nodeStatus);
+		info.AddValue ("currentMap",  currentMap);
 		info.AddValue ("currentNode", currentNode);
 	}
 }

@@ -21,7 +21,7 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	public void Boot() {
-		worldPlayer.gameObject.transform.position = currentAbstractNode.transform.position;
+		worldGameObject.ChangePosition (currentAbstractNode.transform.position);
 		speed = worldPlayer.speed;
 	}
 
@@ -146,6 +146,6 @@ public class WorldManager : MonoBehaviour {
 			}
 		}
 		isDoingCurrentNode = false;
-		saveManager.Save ();
+		saveManager.SaveCurrentMap ();
 	}
 }
