@@ -12,40 +12,75 @@ public class SaveManager : MonoBehaviour {
 
 	private SaveData data;
 
+	private bool isWorking = false;
+
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.G))
-			Save ();
-	}
-
-	public void Load(){
-		string path = "Save_" + profileWindow.ProfileNumber.ToString () + ".game";
-		if (File.Exists (path)) {
-			data = new SaveData ();
-			LoadFromFile (path);
-			SetData ();
+		if (Input.GetKeyDown (KeyCode.G)) {
+			SaveStart ();
 		}
 	}
 
-	public void LoadCurrentMap(){
+	public void LoadStart(){ StartCoroutine (Work("LoadStart")); }
+	public void SaveStart(){ StartCoroutine (Work("SaveStart")); }
+	public void LoadCurrentMap(){ StartCoroutine (Work("LoadCurrentMap")); }
+	public void SaveCurrentMap(){ StartCoroutine (Work("SaveCurrentMap")); }
+
+
+	IEnumerator Work(string function){
+		while (isWorking) {
+			yield return null;
+		}
+		isWorking = true;
+		if (function == "LoadStart") {
+			MLoadStart ();
+		} else if (function == "SaveStart") {
+			MSaveStart ();
+		} else if (function == "LoadCurrentMap") {
+			MLoadCurrentMap ();
+		} else if (function == "SaveCurrentMap") {
+			MSaveCurrentMap ();
+		}
+		isWorking = false;
+	}
+
+	void MLoadStart(){
 		string path = "Player_" + profileWindow.ProfileNumber.ToString ();
-		if (Directory.Exists(path) && File.Exists(path + "\\Save_" + profileWindow.ProfileNumber.ToString () + ".game")) {
+		string file = path + "\\Save_" + profileWindow.ProfileNumber.ToString () + ".game";
+		if (Directory.Exists(path) && File.Exists(file)) {
 			data = new SaveData ();
-			LoadFromFile (path);
-			SetData ();
+			LoadFromFile (file);
+			SetStartData ();
 		}
 	}
 
-	public void Save(){
-		data = new SaveData ();
-		CollectData ();
-		SaveInFile ();
+	void MLoadCurrentMap(){
+		string path = "Player_" + profileWindow.ProfileNumber.ToString ();
+		string file = path + "\\Save_" + worldGO.CurrentMap.name + ".game";
+		if (Directory.Exists(path) && File.Exists(file)) {
+			data = new SaveData ();
+			LoadFromFile (file);
+			SetMapData ();
+		}
 	}
 
-	public void SaveCurrentMap(){
+	void MSaveStart(){
+		string path = "Player_" + profileWindow.ProfileNumber.ToString ();
+		string file = path + "\\Save_" + profileWindow.ProfileNumber.ToString () + ".game";
+		data = new SaveData ();
+		CollectStartData ();
+		SaveInFile (path, file);
+	}
+
+	void MSaveCurrentMap(){
+		string path = "Player_" + profileWindow.ProfileNumber.ToString ();
+		string file = path + "\\Save_" + worldGO.CurrentMap.name + ".game";
 		data = new SaveData ();
 		CollectMapData ();
-		SaveMapInFile ();
+		SaveInFile (path, file);
 	}
+
+
+
 
 	void CollectMapData(){
 		AbstractGameNode[] gameNodes = worldGO.CurrentMap.GetComponentsInChildren<AbstractGameNode> ();
@@ -55,12 +90,9 @@ public class SaveManager : MonoBehaviour {
 		}
 	}
 
-
-	void CollectData (){
-		AbstractGameNode[] gameNodes = 	worldGO.GetComponentsInChildren<AbstractGameNode> ();
-		data.nodeStatus = new int[gameNodes.Length];
-		for(int i = 0; i<data.nodeStatus.Length; ++i){
-			data.nodeStatus[i] = (int)gameNodes[i].NodeStatus;
+	void CollectStartData (){
+		AbstractGameNode[] gameNodes = 	worldGO.CurrentMap.GetComponentsInChildren<AbstractGameNode> ();
+		for(int i = 0; i<gameNodes.Length; ++i){
 			if (gameNodes[i] == worldManager.currentAbstractNode) {
 				data.currentNode = i;
 			}
@@ -72,19 +104,26 @@ public class SaveManager : MonoBehaviour {
 		}
 	}
 
-	void SetData(){
-		AbstractGameNode[] gameNodes = 	worldGO.GetComponentsInChildren<AbstractGameNode> ();
+	void SetStartData(){
+		worldGO.ChangeMap (worldGO.Maps[data.currentMap]);
+		AbstractGameNode[] gameNodes = 	worldGO.CurrentMap.GetComponentsInChildren<AbstractGameNode> ();
 		worldManager.currentAbstractNode = gameNodes[data.currentNode];
+		worldManager.Boot ();
+	}
+
+	void SetMapData(){
+		AbstractGameNode[] gameNodes = 	worldGO.CurrentMap.GetComponentsInChildren<AbstractGameNode> ();
 		for (int i = 0; i < data.nodeStatus.Length; ++i) {
 			gameNodes[i].SetNodeStatus((NodeStatus)data.nodeStatus[i]);
 			gameNodes [i].Boot ();
 		}
-		worldGO.ChangeMap (worldGO.Maps[data.currentMap]);
-		worldManager.Boot ();
 	}
 
-	void SaveInFile(){
-		Stream stream = File.Open ("Save_" + profileWindow.ProfileNumber.ToString() + ".game", FileMode.Create);
+	void SaveInFile(string path, string file){
+		if(!Directory.Exists(path)){
+			Directory.CreateDirectory (path);
+		}
+		Stream stream = File.Open (file, FileMode.Create);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder ();
 		Debug.Log ("Game Saved");
@@ -92,33 +131,11 @@ public class SaveManager : MonoBehaviour {
 		stream.Close ();
 	}
 
-	void SaveMapInFile(){
-		Debug.Log ("Map Saved");
-		string path = "Player_" + profileWindow.ProfileNumber.ToString ();
-		if(!Directory.Exists(path)){
-			Directory.CreateDirectory (path);
-		}
-		Stream stream = File.Open (path + "\\Save_" + worldGO.CurrentMap.name + ".game", FileMode.Create);
-		BinaryFormatter bformatter = new BinaryFormatter ();
-		bformatter.Binder = new VersionDeserializationBinder ();
-		bformatter.Serialize (stream, data);
-		stream.Close ();
-	}
-
-	void LoadFromFile(string path){
-		Stream stream = File.Open (path, FileMode.Open);
+	void LoadFromFile(string file){
+		Stream stream = File.Open (file, FileMode.Open);
 		BinaryFormatter bformatter = new BinaryFormatter ();
 		bformatter.Binder = new VersionDeserializationBinder (); 
-		Debug.Log ("Game Loaded");
-		data = (SaveData)bformatter.Deserialize (stream);
-		stream.Close ();
-	}
-
-	void LoadMapFromFile(string path){
-		Stream stream = File.Open (path + "\\Save_" + profileWindow.ProfileNumber.ToString () + ".game", FileMode.Open);
-		BinaryFormatter bformatter = new BinaryFormatter ();
-		bformatter.Binder = new VersionDeserializationBinder (); 
-		Debug.Log ("Game Loaded");
+		Debug.Log ("Game Loaded from " + file);
 		data = (SaveData)bformatter.Deserialize (stream);
 		stream.Close ();
 	}

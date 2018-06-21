@@ -1,18 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\SaveManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\World\WorldGameObject.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\WorldManager.cs" Line="149" Column="29" />
-      <File FileName="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\World\WorldGameObject.cs" Line="36" Column="23" />
+      <File FileName="Assets\Scripts\Managers\WorldManager.cs" Line="148" Column="3" />
+      <File FileName="Assets\Scripts\UI_Windows\Windows\WorldWindow.cs" Line="23" Column="27" />
+      <File FileName="Assets\Scripts\World\WorldGameObject.cs" Line="22" Column="26" />
       <File FileName="Assets\Scripts\Managers\LevelManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\World\GameNode.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\World\GameNodeEnter.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\World\GameNodeExit.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\World\AbstractGameNode.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\World\GameNodeTravel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\SaveManager.cs" Line="97" Column="3" />
-      <File FileName="Assets\Scripts\Save\SaveData.cs" Line="19" Column="14" />
+      <File FileName="Assets\Scripts\Managers\SaveManager.cs" Line="116" Column="1" />
+      <File FileName="Assets\Scripts\Save\SaveData.cs" Line="13" Column="3" />
+      <File FileName="Assets\Scripts\UI_Windows\Windows\ProfileWindow.cs" Line="22" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,11 +21,14 @@
           <Node name="Project Hephaistos" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Managers" expanded="True">
-                  <Node name="SaveManager.cs" selected="True" />
-                </Node>
+                <Node name="Managers" expanded="True" />
                 <Node name="Save" expanded="True" />
-                <Node name="World" expanded="True" />
+                <Node name="UI_Windows" expanded="True">
+                  <Node name="Windows" expanded="True" />
+                </Node>
+                <Node name="World" expanded="True">
+                  <Node name="WorldGameObject.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

@@ -18,7 +18,8 @@ public class ProfileWindow : GenericWindow {
 
 		worldLoop.SetActive (true);
 		profileNumber = number;
-		saveManager.Load ();
+		saveManager.LoadStart ();
+		saveManager.LoadCurrentMap ();
 	}
 
 	public void OnPreviousWindow(){

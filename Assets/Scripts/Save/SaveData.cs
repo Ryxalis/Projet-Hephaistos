@@ -12,15 +12,6 @@ public class SaveData : ISerializable {
 	public SaveData(){
 	}
 
-	public void SaveMapData(SerializationInfo info, StreamingContext ctxt){
-		nodeStatus  = (int[])info.GetValue ("nodeStatus",  typeof(int[]));
-	}
-
-	public void GetMapData(SerializationInfo info, StreamingContext ctxt){
-		info.AddValue ("nodeStatus",  nodeStatus);
-	}
-
-
 	public SaveData(SerializationInfo info, StreamingContext ctxt){
 		nodeStatus  = (int[])info.GetValue ("nodeStatus",  typeof(int[]));
 		currentMap  = (int)info.GetValue   ("currentMap",  typeof(int));

@@ -71,7 +71,6 @@ public class WorldManager : MonoBehaviour {
 
 				currentAbstractNode = currentExitNode.NextNode;
 				nextAbstractNode =    currentExitNode.NextNode;
-				//tricky things to do
 			} 
 		}
 
